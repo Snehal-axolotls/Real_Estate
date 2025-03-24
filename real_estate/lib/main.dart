@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:real_estate/addlead.dart';
 import 'package:real_estate/assignedleads.dart';
+import 'package:real_estate/lead_details.dart';
 import 'package:real_estate/login.dart';
 import 'package:real_estate/onboarding.dart';
 import 'package:real_estate/verifyPhone.dart';
@@ -15,7 +17,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AssignedLeads(),
+      home: AddLeader(),
     );
   }
 }

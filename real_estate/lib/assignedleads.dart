@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:real_estate/lead_details.dart';
 
 class AssignedLeads extends StatefulWidget {
   const AssignedLeads({super.key});
@@ -316,7 +317,14 @@ class _AssignedLeadsState extends State<AssignedLeads> {
               Row(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LeadDetails(),
+                        ),
+                      );
+                    },
                     child: Container(
                       height: 25,
                       width: 75,
