@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:real_estate/assignedleads.dart';
+import 'package:real_estate/login.dart';
+import 'package:real_estate/onboarding.dart';
+import 'package:real_estate/verifyPhone.dart';
+
+void main() {
+  runApp(const MainApp());
+}
+
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AssignedLeads(),
+    );
+  }
+}
