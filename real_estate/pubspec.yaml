@@ -7,6 +7,7 @@ environment:
   sdk: ^3.7.0
 
 dependencies:
+  expansion_tile_card: ^3.0.0
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.17
