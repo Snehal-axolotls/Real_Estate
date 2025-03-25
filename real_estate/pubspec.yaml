@@ -10,8 +10,10 @@ dependencies:
   expansion_tile_card: ^3.0.0
   flutter:
     sdk: flutter
+  flutter_otp_text_field: ^1.5.1+1
   flutter_svg: ^2.0.17
   google_fonts: ^6.2.1
+  intl_phone_field: ^3.2.0
   syncfusion_flutter_charts: ^28.2.12
 
 dev_dependencies:
