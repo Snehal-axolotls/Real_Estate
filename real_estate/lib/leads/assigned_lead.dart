@@ -15,6 +15,23 @@ class AssignedLeads extends StatefulWidget {
 }
 
 class _AssignedLeadsState extends State<AssignedLeads> {
+
+  DateTime selectedDate = DateTime.now();
+  
+  Future<void> _selectDate(BuildContext context, Function(DateTime) onDateSelected) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != selectedDate) {
+      onDateSelected(picked);
+    }
+  }
+
+  TextEditingController noteController = TextEditingController();
+
   bool isExpanded = false;
   String selectedFilter = "New";
   final List<String> filters = [
@@ -219,7 +236,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
     );
   }
 
-  DateTime selectedDate = DateTime.now();
+  // DateTime selectedDate = DateTime.now();
 
   Widget leadCard(
     String name,
@@ -526,264 +543,123 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   GestureDetector(
                     onTap: () {
                       showDialog(
-                        context: context,
-                        builder:
-                            (context) => AlertDialog(
-                              title: Text(
-                                "Schedule Follow Up",
-                                style: GoogleFonts.dmSans(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: const Color.fromRGBO(21, 95, 165, 1),
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              content: Column(
-                                children: [
-                                  const SizedBox(height: 60),
-                                  Container(
-                                    height: 55,
-                                    width: 299,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(9),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 299,
-                                          height: 60,
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 12,
-                                            vertical: 8,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Color.fromRGBO(
-                                                124,
-                                                143,
-                                                162,
-                                                1,
-                                              ),
-                                            ),
-                                            borderRadius: BorderRadius.circular(
-                                              20,
-                                            ),
-                                          ),
-                                          child: GestureDetector(
-                                            onTap: () async {
-                                              DateTime? pickedDate =
-                                                  await showDatePicker(
-                                                    context: context,
-                                                    initialDate: DateTime.now(),
-                                                    firstDate: DateTime(2000),
-                                                    lastDate: DateTime(2100),
-                                                  );
-                                              if (pickedDate != null) {
-                                                setState(() {
-                                                  selectedDate = pickedDate;
-                                                });
-                                              }
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.calendar_month,
-                                                  color: Color.fromRGBO(
-                                                    8,
-                                                    72,
-                                                    134,
-                                                    1,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 8),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Date',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        color: Colors.grey,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      DateFormat(
-                                                        'MMMM d, yyyy',
-                                                      ).format(selectedDate),
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Color.fromRGBO(
-                                                          8,
-                                                          72,
-                                                          134,
-                                                          1,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  Container(
-                                    width: 299,
-                                    height: 60,
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 12,
-                                      vertical: 8,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: Color.fromRGBO(124, 143, 162, 1),
-                                      ),
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: GestureDetector(
-                                      onTap: () async {
-                                        DateTime? pickedDate =
-                                            await showDatePicker(
-                                              context: context,
-                                              initialDate: DateTime.now(),
-                                              firstDate: DateTime(2000),
-                                              lastDate: DateTime(2100),
-                                            );
-                                        if (pickedDate != null) {
-                                          setState(() {
-                                            selectedDate = pickedDate;
-                                          });
-                                        }
-                                      },
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.access_time_outlined,
-                                            color: Color.fromRGBO(
-                                              8,
-                                              72,
-                                              134,
-                                              1,
-                                            ),
-                                          ),
-                                          SizedBox(width: 8),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              const Text(
-                                                'Date',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              Text(
-                                                DateFormat(
-                                                  'MMMM d, yyyy',
-                                                ).format(selectedDate),
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromRGBO(
-                                                    189,
-                                                    201,
-                                                    221,
-                                                    1,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 15),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 5,
-                                      left: 5,
-                                      right: 5,
-                                    ),
-                                    child: Container(
-                                      height: 104,
-                                      width: 299,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(9),
-                                        border: Border.all(
-                                          color: Color.fromRGBO(
-                                            189,
-                                            201,
-                                            221,
-                                            1,
-                                          ),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Note",
-                                        style: GoogleFonts.dmSans(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 11,
-                                          color: const Color.fromRGBO(
-                                            189,
-                                            201,
-                                            221,
-                                            1,
-                                          ),
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              actions: [
-                                Center(
-                                  child: Container(
-                                    height: 39,
-                                    width: 212,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color.fromRGBO(15, 192, 65, 1),
-                                          Color.fromRGBO(48, 140, 74, 1),
-                                        ],
-                                      ),
-                                    ),
-                                    child: ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.transparent,
-                                        shadowColor: Colors.transparent,
-                                      ),
-                                      child: Text(
-                                        "Save Reminder",
-                                        style: GoogleFonts.dmSans(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: const Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                      );
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        child: Container(
+          padding: const EdgeInsets.all(20.0),
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              /// Title
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Schedule Follow Up",
+                    style: GoogleFonts.dmSans(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromRGBO(14, 39, 63, 1),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(Icons.close, color: Colors.black54),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              /// Date Picker 1
+              GestureDetector(
+                onTap: () => _selectDate(context, (date) {
+                  selectedDate = date;
+                }),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.calendar_today, color: Colors.black54),
+                      const SizedBox(width: 10),
+                      Text(
+                        DateFormat.yMMMMd().format(selectedDate),
+                        style: GoogleFonts.dmSans(fontSize: 16, color: Colors.black87),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+
+              /// Date Picker 2 (Optional second date)
+              GestureDetector(
+                onTap: () => _selectDate(context, (date) {
+                  selectedDate = date;
+                }),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.access_time, color: Colors.black54),
+                      const SizedBox(width: 10),
+                      Text(
+                        DateFormat.yMMMMd().format(selectedDate),
+                        style: GoogleFonts.dmSans(fontSize: 16, color: Colors.black87),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+
+              /// Notes TextField
+              TextField(
+                controller: noteController,
+                maxLines: 3,
+                decoration: InputDecoration(
+                  hintText: "Note",
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              /// Save Reminder Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  child: Text(
+                    "Save Reminder",
+                    style: GoogleFonts.dmSans(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+
+                      
                     },
                     child: Container(
                       height: 25,
