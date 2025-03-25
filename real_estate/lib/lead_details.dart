@@ -15,7 +15,7 @@ class _LeadDetailsState extends State<LeadDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 245, 248, 1),
+      backgroundColor: const Color.fromRGBO(242, 245, 248, 1),
       appBar: AppBar(
         title: Text(
           "Lead details",
