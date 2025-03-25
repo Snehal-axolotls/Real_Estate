@@ -419,6 +419,7 @@ import 'package:real_estate/dashboard/dashboard.dart';
 import 'package:real_estate/followup/follow_ups.dart';
 import 'package:real_estate/leads/add_lead.dart';
 import 'package:real_estate/leads/assigned_lead.dart';
+import 'package:real_estate/login%20screens/login.dart';
 import 'package:real_estate/properties/properties.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -566,7 +567,7 @@ class _AppDrawerState extends State<AppDrawer>
                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg",() => FollowUp()),
                   buildMenuItem(3, "Properties", "assets/svg/properties.svg",() => Property()),
                   buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property()),
-                  buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => Property()),
+                  buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage()),
                 ],
               ),
             ),

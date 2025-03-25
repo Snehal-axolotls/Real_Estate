@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
 import 'package:real_estate/common/drawer.dart';
+import 'package:real_estate/profile/profile.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashBoard extends StatefulWidget {
@@ -45,7 +46,14 @@ class _DashBoardState extends State<DashBoard> {
             actions: [
               Image.asset("assets/png/notify.png"),
               SizedBox(width: Width * 0.05),
-              Image.asset("assets/png/person.png"),
+              GestureDetector(
+                onTap: () {
+                   Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context)=>Profile()),
+        );
+                },
+                child: Image.asset("assets/png/person.png")),
               SizedBox(width: Width * 0.04),
             ],
           ),

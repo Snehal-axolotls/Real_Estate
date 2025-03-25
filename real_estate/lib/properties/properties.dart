@@ -5,6 +5,7 @@ import 'package:real_estate/common/bottom_nav_bar.dart';
 import 'package:real_estate/common/filterDrawer.dart';
 import 'package:real_estate/dashboard/dashboard.dart';
 import 'package:real_estate/model/property_model.dart';
+import 'package:real_estate/properties/propertyDetails.dart';
 
 class Property extends StatefulWidget {
   const Property({super.key});
@@ -337,19 +338,25 @@ class _PropertyState extends State<Property> {
                                       ),
                                       SizedBox(width: screenWidth * 0.16),
                                         
-                                      Container(
-                                        padding: EdgeInsets.all(7),
-                                        // width: screenWidth * 0.3,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromRGBO(228, 237, 247, 1),
-                                          borderRadius: BorderRadius.circular(8),
-                                        ),
-                                        child: Text(
-                                          "View Details",
-                                          style: GoogleFonts.dmSans(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: screenWidth * 0.025,
-                                            color: Color.fromRGBO(9, 67, 124, 1),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) => PropertyDetails()));
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(7),
+                                          // width: screenWidth * 0.3,
+                                          decoration: BoxDecoration(
+                                            color: Color.fromRGBO(228, 237, 247, 1),
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: Text(
+                                            "View Details",
+                                            style: GoogleFonts.dmSans(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: screenWidth * 0.025,
+                                              color: Color.fromRGBO(9, 67, 124, 1),
+                                            ),
                                           ),
                                         ),
                                       ),
