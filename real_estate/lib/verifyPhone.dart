@@ -12,6 +12,8 @@ class Verify extends StatefulWidget {
 class _VerifyState extends State<Verify> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(

@@ -5,6 +5,7 @@ import 'package:real_estate/lead_details.dart';
 import 'package:real_estate/login.dart';
 import 'package:real_estate/onboarding.dart';
 import 'package:real_estate/profile.dart';
+import 'package:real_estate/property.dart';
 import 'package:real_estate/propertyDetails.dart';
 import 'package:real_estate/verifyPhone.dart';
 
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      home: LoginPage(),
     );
   }
 }

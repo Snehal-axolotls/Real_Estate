@@ -117,6 +117,9 @@ class _AddLeaderState extends State<AddLeader> {
                 
               ),
                         child: TextField( 
+                          style:GoogleFonts.dmSans(
+                fontWeight: FontWeight.w400,
+                fontSize: screenWidth * 0.03,),
                           controller: noteController,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,     
