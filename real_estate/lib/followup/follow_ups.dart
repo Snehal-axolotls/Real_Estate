@@ -97,29 +97,41 @@ class _FollowUpState extends State<FollowUp> {
               ),
             ),
           ),
-          body: Container(
-            margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: DataTable(
-              columnSpacing: 20,
-              headingRowHeight: 65,
-              // ignore: deprecated_member_use
-              dataRowHeight: 65,
-              dividerThickness: 1.2, 
-              headingRowColor: WidgetStateColor.resolveWith(
-                (states) => Color.fromRGBO(212,228,243,1,), 
+          body: SingleChildScrollView(
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
               ),
-
-              columns: [
-                DataColumn(
-                  label: SizedBox(
-                    width: screenWidth*0.2,
-                    child: Text(
-                      "Name",
+              clipBehavior: Clip.antiAlias,
+              child: DataTable(
+                columnSpacing: 20,
+                headingRowHeight: 65,
+                // ignore: deprecated_member_use
+                dataRowHeight: 65,
+                dividerThickness: 1.2, 
+                headingRowColor: WidgetStateColor.resolveWith(
+                  (states) => Color.fromRGBO(212,228,243,1,), 
+                ),
+            
+                columns: [
+                  DataColumn(
+                    label: SizedBox(
+                      width: screenWidth*0.2,
+                      child: Text(
+                        "Name",
+                        style: GoogleFonts.dmSans(
+                          fontWeight: FontWeight.w500,
+                          fontSize: screenWidth * 0.04,
+                          color: Color.fromRGBO(8, 47, 84, 1),
+                        ),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      "Date & Time",
                       style: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w500,
                         fontSize: screenWidth * 0.04,
@@ -127,79 +139,69 @@ class _FollowUpState extends State<FollowUp> {
                       ),
                     ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "Date & Time",
-                    style: GoogleFonts.dmSans(
-                      fontWeight: FontWeight.w500,
-                      fontSize: screenWidth * 0.04,
-                      color: Color.fromRGBO(8, 47, 84, 1),
+                  DataColumn(
+                    label: Text(
+                      "Followup",
+                      style: GoogleFonts.dmSans(
+                        fontWeight: FontWeight.w500,
+                        fontSize: screenWidth * 0.04,
+                        color: Color.fromRGBO(8, 47, 84, 1),
+                      ),
                     ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "Followup",
-                    style: GoogleFonts.dmSans(
-                      fontWeight: FontWeight.w500,
-                      fontSize: screenWidth * 0.04,
-                      color: Color.fromRGBO(8, 47, 84, 1),
-                    ),
-                  ),
-                ),
-              ],
-              rows:
-                  data.map((entry) {
-                    return DataRow(
-                      cells: [
-                        DataCell(
-                          Row(
-                            children: [
-                              Container(
-                                width: 10,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: getColor(entry["status"]!),
+                ],
+                rows:
+                    data.map((entry) {
+                      return DataRow(
+                        cells: [
+                          DataCell(
+                            Row(
+                              children: [
+                                Container(
+                                  width: 10,
+                                  height: 10,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: getColor(entry["status"]!),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(width: 8),
-                              Text(
-                                entry["name"]!,
-                                style: GoogleFonts.dmSans(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: screenWidth * 0.03,
-                                  color: Color.fromRGBO(62, 76, 90, 1),
+                                SizedBox(width: 8),
+                                Text(
+                                  entry["name"]!,
+                                  style: GoogleFonts.dmSans(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: screenWidth * 0.03,
+                                    color: Color.fromRGBO(62, 76, 90, 1),
+                                  ),
+                                  softWrap: true,
                                 ),
-                                softWrap: true,
-                              ),
-                            ],
-                          ),
-                        ),
-                        DataCell(
-                          Text(
-                            entry["date_time"]!,
-                            style: GoogleFonts.dmSans(
-                              fontWeight: FontWeight.w500,
-                              fontSize: screenWidth * 0.03,
-                              color: Color.fromRGBO(62, 76, 90, 1),
+                              ],
                             ),
                           ),
-                        ),
-                        DataCell(
-                          Text(
-                            entry["followup"]!,
-                            style: GoogleFonts.dmSans(
-                              fontWeight: FontWeight.w500,
-                              fontSize: screenWidth * 0.03,
-                              color: Color.fromRGBO(62, 76, 90, 1),
+                          DataCell(
+                            Text(
+                              entry["date_time"]!,
+                              style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w500,
+                                fontSize: screenWidth * 0.03,
+                                color: Color.fromRGBO(62, 76, 90, 1),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    );
-                  }).toList(),
+                          DataCell(
+                            Text(
+                              entry["followup"]!,
+                              style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w500,
+                                fontSize: screenWidth * 0.03,
+                                color: Color.fromRGBO(62, 76, 90, 1),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }).toList(),
+              ),
             ),
           ),
           bottomNavigationBar: CustomBottomNavBar(selectedIndex: 3)        
