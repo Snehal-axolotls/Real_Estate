@@ -78,49 +78,59 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "2BHK Apartment",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w500,
-                            fontSize: screenWidth * 0.05,
-                            color: const Color.fromRGBO(8, 47, 84, 1),
+                        Flexible(
+                          child: Text(
+                            "2BHK Apartment",
+                            style: GoogleFonts.dmSans(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                              color: const Color.fromRGBO(8, 47, 84, 1),
+                            ),
                           ),
                         ),
-                        Spacer(),
-                        Text(
-                          "₹75,00,000",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w700,
-                            fontSize: screenWidth * 0.048,
-                            color: const Color.fromRGBO(2, 111, 216, 1),
+                        // Spacer(),
+                        Flexible(
+                          child: Text(
+                            "₹75,00,000",
+                            style: GoogleFonts.dmSans(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18,
+                              color: const Color.fromRGBO(2, 111, 216, 1),
+                            ),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(height: screenHeight * 0.01),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Icon(
                           Icons.location_on,
                           size: 14,
                           color: Color.fromRGBO(110, 123, 134, 1),
                         ),
-                        SizedBox(width: screenWidth * 0.02),
-                        Text(
-                          "Prime Beach Apartments , Mumbai",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w500,
-                            fontSize: screenWidth * 0.028,
-                            color: const Color.fromRGBO(110, 123, 134, 1),
+                        // SizedBox(width: screenWidth * 0.02),
+                        Flexible(
+                          child: Text(
+                            "Prime Beach Apartments , Mumbai",
+                            style: GoogleFonts.dmSans(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: const Color.fromRGBO(110, 123, 134, 1),
+                            ),
                           ),
                         ),
-                        Spacer(),
+                        SizedBox(width: screenWidth * 0.02),
+                                                  
+                        // Spacer(),
                         Text(
                           "(2000sqft)",
                           style: GoogleFonts.dmSans(
                             fontWeight: FontWeight.w700,
-                            fontSize: screenWidth * 0.028,
+                            fontSize: 14,
                             color: const Color.fromRGBO(110, 123, 134, 1),
                           ),
                         ),
@@ -139,7 +149,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                           "4 Bed",
                           style: GoogleFonts.dmSans(
                             fontWeight: FontWeight.w400,
-                            fontSize: screenWidth * 0.025,
+                            fontSize: 12,
                             color: const Color.fromRGBO(110, 123, 134, 1),
                           ),
                         ),
@@ -154,18 +164,21 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                           "3 Bath ",
                           style: GoogleFonts.dmSans(
                             fontWeight: FontWeight.w400,
-                            fontSize: screenWidth * 0.025,
+                            fontSize: 12,
                             color: const Color.fromRGBO(110, 123, 134, 1),
                           ),
                         ),
                         Spacer(),
-                       SvgPicture.asset("assets/svg/chefIcon.svg",height:screenWidth*0.035,),
+                        SvgPicture.asset(
+                          "assets/svg/chefIcon.svg",
+                          height: screenWidth * 0.035,
+                        ),
                         SizedBox(width: screenWidth * 0.01),
                         Text(
                           "1 Kitchen",
                           style: GoogleFonts.dmSans(
                             fontWeight: FontWeight.w400,
-                            fontSize: screenWidth * 0.025,
+                            fontSize: 12,
                             color: const Color.fromRGBO(110, 123, 134, 1),
                           ),
                         ),
@@ -176,7 +189,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       "Enjoy luxury living in this 2BHK sea-facing apartment with breathtaking ocean views. Spanning 1200 sq. ft., it features spacious bedrooms, a bright living area, a modular kitchen, and premium interiors. The private balcony offers a serene retreat, while top amenities like a pool, gym, and 24/7 security enhance comfort and convenience. Located in a prime area, it offers easy access to shopping, dining, and transportation.",
                       style: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w400,
-                        fontSize: screenWidth * 0.025,
+                        fontSize: 12,
                         color: const Color.fromRGBO(110, 123, 134, 1),
                       ),
                     ),
@@ -218,7 +231,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                                   sectionTitle,
                                   style: GoogleFonts.dmSans(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: screenWidth * 0.035,
+                                    fontSize: 16,
                                     color: const Color.fromRGBO(14, 39, 63, 1),
                                   ),
                                 ),
@@ -284,7 +297,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                                                 1,
                                               ),
                                               fontWeight: FontWeight.w500,
-                                              fontSize: screenWidth * 0.03,
+                                              fontSize: 12,
                                             ),
                                           ),
                                           Expanded(
@@ -298,7 +311,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                                                   1,
                                                 ),
                                                 fontWeight: FontWeight.w400,
-                                                fontSize: screenWidth * 0.03,
+                                                fontSize: 12,
                                               ),
                                             ),
                                           ),

@@ -1,203 +1,426 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:google_fonts/google_fonts.dart';
+// // import 'package:flutter/material.dart';
+// // import 'package:flutter_svg/svg.dart';
+// // import 'package:google_fonts/google_fonts.dart';
 
-// class AppDrawer extends StatefulWidget {
-//   const AppDrawer({super.key});
+// // class AppDrawer extends StatefulWidget {
+// //   const AppDrawer({super.key});
 
-//   @override
-//   _AppDrawerState createState() => _AppDrawerState();
-// }
+// //   @override
+// //   _AppDrawerState createState() => _AppDrawerState();
+// // }
 
-// class _AppDrawerState extends State<AppDrawer>
-//     with SingleTickerProviderStateMixin {
-//   late AnimationController _controller;
+// // class _AppDrawerState extends State<AppDrawer>
+// //     with SingleTickerProviderStateMixin {
+// //   late AnimationController _controller;
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     _controller = AnimationController(
-//       vsync: this,
-//       duration: const Duration(seconds: 1),
-//     )..forward();
-//   }
+// //   @override
+// //   void initState() {
+// //     super.initState();
+// //     _controller = AnimationController(
+// //       vsync: this,
+// //       duration: const Duration(seconds: 1),
+// //     )..forward();
+// //   }
 
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
+// //   @override
+// //   void dispose() {
+// //     _controller.dispose();
+// //     super.dispose();
+// //   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     double Width = MediaQuery.of(context).size.width;
-//     double Height = MediaQuery.of(context).size.height;
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     double Width = MediaQuery.of(context).size.width;
+// //     double Height = MediaQuery.of(context).size.height;
 
-//     return Drawer(
-//       child: AnimatedBuilder(
-//         animation: _controller,
-//         builder: (context, child) {
-//           return Container(
-//             decoration: const BoxDecoration(
-//               color: Color.fromRGBO(14, 39, 63, 1),
-//             ),
-//             child: Padding(
-//               padding: const EdgeInsets.all(10.0),
-//               child: Column(
-//                 children: [
-//                   Row(
-//                     children: [
-//                       Container(
-//                         height: Height * 0.17,
-//                         width: Width * 0.17,
-//                         decoration: BoxDecoration(shape: BoxShape.circle),
-//                         child: SvgPicture.asset(
-//                           "assets/svg/Avatar.svg",
-//                           fit: BoxFit.contain,
-//                         ),
-//                       ),
-//                       SizedBox(width: Width * 0.04),
-//                       Column(
-//                         crossAxisAlignment: CrossAxisAlignment.start,
-//                         children: [
-//                           Text(
-//                             "John Doe",
-//                             style: GoogleFonts.dmSans(
-//                               color: Colors.white,
-//                               fontWeight: FontWeight.w600,
-//                               fontSize: Height * 0.02,
-//                             ),
-//                           ),
-//                           Text(
-//                             "+91 8888888888",
-//                             style: GoogleFonts.dmSans(
-//                               color: Color.fromRGBO(209, 211, 212, 1),
-//                               fontWeight: FontWeight.w400,
-//                               fontSize: Height * 0.015,
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                       Spacer(),
-//                       Icon(
-//                         Icons.close,
-//                         color: Color.fromRGBO(209, 211, 212, 1),
-//                         size: Width * 0.075,
-//                       ),
-//                     ],
-//                   ),
+// //     return Drawer(
+// //       child: AnimatedBuilder(
+// //         animation: _controller,
+// //         builder: (context, child) {
+// //           return Container(
+// //             decoration: const BoxDecoration(
+// //               color: Color.fromRGBO(14, 39, 63, 1),
+// //             ),
+// //             child: Padding(
+// //               padding: const EdgeInsets.all(10.0),
+// //               child: Column(
+// //                 children: [
+// //                   Row(
+// //                     children: [
+// //                       Container(
+// //                         height: Height * 0.17,
+// //                         width: Width * 0.17,
+// //                         decoration: BoxDecoration(shape: BoxShape.circle),
+// //                         child: SvgPicture.asset(
+// //                           "assets/svg/Avatar.svg",
+// //                           fit: BoxFit.contain,
+// //                         ),
+// //                       ),
+// //                       SizedBox(width: Width * 0.04),
+// //                       Column(
+// //                         crossAxisAlignment: CrossAxisAlignment.start,
+// //                         children: [
+// //                           Text(
+// //                             "John Doe",
+// //                             style: GoogleFonts.dmSans(
+// //                               color: Colors.white,
+// //                               fontWeight: FontWeight.w600,
+// //                               fontSize: Height * 0.02,
+// //                             ),
+// //                           ),
+// //                           Text(
+// //                             "+91 8888888888",
+// //                             style: GoogleFonts.dmSans(
+// //                               color: Color.fromRGBO(209, 211, 212, 1),
+// //                               fontWeight: FontWeight.w400,
+// //                               fontSize: Height * 0.015,
+// //                             ),
+// //                           ),
+// //                         ],
+// //                       ),
+// //                       Spacer(),
+// //                       Icon(
+// //                         Icons.close,
+// //                         color: Color.fromRGBO(209, 211, 212, 1),
+// //                         size: Width * 0.075,
+// //                       ),
+// //                     ],
+// //                   ),
 
-//                   SizedBox(height: Height * 0.01),
+// //                   SizedBox(height: Height * 0.01),
 
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/Menu icon.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Dashboard",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/Menu icon.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Dashboard",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
                   
-//                   SizedBox(height:Height*0.04),
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/Icon- Outline.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Leads",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
+// //                   SizedBox(height:Height*0.04),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/Icon- Outline.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Leads",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
 
-//                   SizedBox(height:Height*0.04),
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/follow.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Follow ups",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
+// //                   SizedBox(height:Height*0.04),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/follow.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Follow ups",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
 
-//                   SizedBox(height:Height*0.04),
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/properties.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Properties",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
+// //                   SizedBox(height:Height*0.04),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/properties.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Properties",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
 
-//                   SizedBox(height:Height*0.04),
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/settings.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Settings",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
+// //                   SizedBox(height:Height*0.04),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/settings.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Settings",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
 
-//                   SizedBox(height:Height*0.04),
-//                   Row(
-//                     children: [
-//                       SvgPicture.asset("assets/svg/logout.svg"),
-//                       SizedBox(width: Width * 0.02),
-//                       Text(
-//                         "Logout",
-//                         style: GoogleFonts.dmSans(
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: Height * 0.02,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
+// //                   SizedBox(height:Height*0.04),
+// //                   Row(
+// //                     children: [
+// //                       SvgPicture.asset("assets/svg/logout.svg"),
+// //                       SizedBox(width: Width * 0.02),
+// //                       Text(
+// //                         "Logout",
+// //                         style: GoogleFonts.dmSans(
+// //                           fontWeight: FontWeight.w600,
+// //                           fontSize: Height * 0.02,
+// //                           color: Colors.white,
+// //                         ),
+// //                       ),
+// //                     ],
+// //                   ),
+// //                 ],
+// //               ),
+// //             ),
+// //           );
+// //         },
+// //       ),
+// //     );
+// //   }
+// // }
+
+
+
+// // import 'package:flutter/material.dart';
+// // import 'package:flutter_svg/svg.dart';
+// // import 'package:google_fonts/google_fonts.dart';
+
+// // class AppDrawer extends StatefulWidget {
+// //   const AppDrawer({super.key});
+
+// //   @override
+// //   _AppDrawerState createState() => _AppDrawerState();
+// // }
+
+// // class _AppDrawerState extends State<AppDrawer>
+// //     with SingleTickerProviderStateMixin {
+// //   late AnimationController _controller;
+// //   int _selectedIndex = 0; // Track selected menu item
+// //   bool _isLeadsExpanded = false; // Track expansion state of Leads dropdown
+
+// //   @override
+// //   void initState() {
+// //     super.initState();
+// //     _controller = AnimationController(
+// //       vsync: this,
+// //       duration: const Duration(milliseconds: 500),
+// //     )..forward();
+// //   }
+
+// //   @override
+// //   void dispose() {
+// //     _controller.dispose();
+// //     super.dispose();
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     double width = MediaQuery.of(context).size.width;
+// //     double height = MediaQuery.of(context).size.height;
+
+// //     return Drawer(
+// //       child: AnimatedBuilder(
+// //         animation: _controller,
+// //         builder: (context, child) {
+// //           return Container(
+// //             decoration: const BoxDecoration(
+// //               color: Color.fromRGBO(14, 39, 63, 1),
+// //             ),
+// //             child: Padding(
+// //               padding: const EdgeInsets.all(10.0),
+// //               child: Column(
+// //                 children: [
+// //                   /// Profile Section
+// //                   Padding(
+// //                     padding: const EdgeInsets.only(top:17.0),
+// //                     child: Row(
+// //                       children: [
+// //                         Container(
+// //                           height: height * 0.07,
+// //                           width: width * 0.14,
+// //                           decoration: const BoxDecoration(shape: BoxShape.circle),
+// //                           child: SvgPicture.asset(
+// //                             "assets/svg/Avatar.svg",
+// //                             fit: BoxFit.contain,
+// //                           ),
+// //                         ),
+// //                         SizedBox(width: width * 0.04),
+// //                         Column(
+// //                           crossAxisAlignment: CrossAxisAlignment.start,
+// //                           children: [
+// //                             Text(
+// //                               "John Doe",
+// //                               style: GoogleFonts.dmSans(
+// //                                 color: Colors.white,
+// //                                 fontWeight: FontWeight.w600,
+// //                                 fontSize: height * 0.02,
+// //                               ),
+// //                             ),
+// //                             Text(
+// //                               "+91 8888888888",
+// //                               style: GoogleFonts.dmSans(
+// //                                 color: Color.fromRGBO(209, 211, 212, 1),
+// //                                 fontWeight: FontWeight.w400,
+// //                                 fontSize: height * 0.015,
+// //                               ),
+// //                             ),
+// //                           ],
+// //                         ),
+// //                         const Spacer(),
+// //                         GestureDetector(
+// //                           onTap: () => Navigator.pop(context), // Close drawer
+// //                           child: Icon(
+// //                             Icons.close,
+// //                             color: Color.fromRGBO(209, 211, 212, 1),
+// //                             size: width * 0.075,
+// //                           ),
+// //                         ),
+// //                       ],
+// //                     ),
+// //                   ),
+
+// //                   SizedBox(height: height * 0.04),
+
+// //                   /// Menu Items
+// //                   buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg"),
+
+// //                   /// Leads with Dropdown
+// //                   GestureDetector(
+// //                     onTap: () {
+// //                       setState(() {
+// //                         _isLeadsExpanded = !_isLeadsExpanded;
+// //                       });
+// //                     },
+// //                     child: Container(
+// //                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+// //                       decoration: BoxDecoration(
+// //                         color: _isLeadsExpanded ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+// //                         borderRadius: BorderRadius.circular(10),
+// //                       ),
+// //                       child: Row(
+// //                         children: [
+// //                           SvgPicture.asset("assets/svg/Icon- Outline.svg", color: Colors.white),
+// //                           const SizedBox(width: 10),
+// //                           Expanded(
+// //                             child: Text(
+// //                               "Leads",
+// //                               style: GoogleFonts.dmSans(
+// //                                 fontWeight: FontWeight.w600,
+// //                                 fontSize: 16,
+// //                                 color: Colors.white,
+// //                               ),
+// //                             ),
+// //                           ),
+// //                           Icon(
+// //                             _isLeadsExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+// //                             color: Colors.white,
+// //                           ),
+// //                         ],
+// //                       ),
+// //                     ),
+// //                   ),
+
+// //                   if (_isLeadsExpanded) ...[
+// //                     buildSubMenuItem("My Leads", "assets/svg/my_leads.svg"),
+// //                     buildSubMenuItem("Generate New Lead", "assets/svg/new_lead.svg"),
+// //                   ],
+
+// //                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg"),
+// //                   buildMenuItem(3, "Properties", "assets/svg/properties.svg"),
+// //                   buildMenuItem(4, "Settings", "assets/svg/settings.svg"),
+// //                   buildMenuItem(5, "Logout", "assets/svg/logout.svg"),
+// //                 ],
+// //               ),
+// //             ),
+// //           );
+// //         },
+// //       ),
+// //     );
+// //   }
+
+// //   /// Method to Build Main Menu Items
+// //   Widget buildMenuItem(int index, String text, String iconPath) {
+// //     bool isSelected = _selectedIndex == index; // Check if selected
+
+// //     return GestureDetector(
+// //       onTap: () {
+// //         setState(() {
+// //           _selectedIndex = index;
+// //         });
+// //         Navigator.pop(context); // Close drawer on selection
+// //       },
+// //       child: Container(
+// //         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+// //         margin: const EdgeInsets.only(bottom: 10),
+// //         decoration: BoxDecoration(
+// //           color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+// //           borderRadius: BorderRadius.circular(10),
+// //         ),
+// //         child: Row(
+// //           children: [
+// //             SvgPicture.asset(iconPath, color: Colors.white),
+// //             const SizedBox(width: 10),
+// //             Text(
+// //               text,
+// //               style: GoogleFonts.dmSans(
+// //                 fontWeight: FontWeight.w600,
+// //                 fontSize: 16,
+// //                 color: Colors.white,
+// //               ),
+// //             ),
+// //           ],
+// //         ),
+// //       ),
+// //     );
+// //   }
+
+// //   /// Method to Build Submenu Items
+// //   Widget buildSubMenuItem(String text, String iconPath) {
+// //     return Padding(
+// //       padding: const EdgeInsets.only(left: 40, top: 8, bottom: 5),
+// //       child: Row(
+// //         children: [
+// //           SvgPicture.asset(iconPath, color: Colors.white, width: 20),
+// //           const SizedBox(width: 10),
+// //           Text(
+// //             text,
+// //             style: GoogleFonts.dmSans(
+// //               fontWeight: FontWeight.w600,
+// //               fontSize: 16,
+// //               color: Colors.white,
+// //             ),
+// //           ),
+// //         ],
+// //       ),
+// //     );
+// //   }
+// // }
 
 
 
 // import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:google_fonts/google_fonts.dart';
+// import 'package:real_estate/dashboard/dashboard.dart';
+// import 'package:real_estate/followup/follow_ups.dart';
+// import 'package:real_estate/leads/add_lead.dart';
+// import 'package:real_estate/leads/assigned_lead.dart';
+// import 'package:real_estate/login%20screens/login.dart';
+// import 'package:real_estate/properties/properties.dart';
 
 // class AppDrawer extends StatefulWidget {
 //   const AppDrawer({super.key});
@@ -209,8 +432,9 @@
 // class _AppDrawerState extends State<AppDrawer>
 //     with SingleTickerProviderStateMixin {
 //   late AnimationController _controller;
-//   int _selectedIndex = 0; // Track selected menu item
-//   bool _isLeadsExpanded = false; // Track expansion state of Leads dropdown
+//   int? _selectedIndex = 0; // Track selected main menu item
+//   int? _selectedSubIndex; // Track selected submenu item
+//   bool _isLeadsExpanded = false; // Track Leads dropdown state
 
 //   @override
 //   void initState() {
@@ -246,7 +470,7 @@
 //                 children: [
 //                   /// Profile Section
 //                   Padding(
-//                     padding: const EdgeInsets.only(top:17.0),
+//                     padding: const EdgeInsets.only(top: 17.0),
 //                     child: Row(
 //                       children: [
 //                         Container(
@@ -296,19 +520,20 @@
 //                   SizedBox(height: height * 0.04),
 
 //                   /// Menu Items
-//                   buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg"),
+//                   buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg",()=> DashBoard()),
 
 //                   /// Leads with Dropdown
 //                   GestureDetector(
 //                     onTap: () {
 //                       setState(() {
 //                         _isLeadsExpanded = !_isLeadsExpanded;
+//                         _selectedIndex = _isLeadsExpanded ? 1 : null; // Keep "Leads" highlighted when expanded
 //                       });
 //                     },
 //                     child: Container(
 //                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
 //                       decoration: BoxDecoration(
-//                         color: _isLeadsExpanded ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//                         color: _selectedIndex == 1 ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
 //                         borderRadius: BorderRadius.circular(10),
 //                       ),
 //                       child: Row(
@@ -335,14 +560,14 @@
 //                   ),
 
 //                   if (_isLeadsExpanded) ...[
-//                     buildSubMenuItem("My Leads", "assets/svg/my_leads.svg"),
-//                     buildSubMenuItem("Generate New Lead", "assets/svg/new_lead.svg"),
+//                     buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg",() => AssignedLeads()),
+//                     buildSubMenuItem(1, "Generate New Lead", "assets/svg/new_lead.svg",() => AddLeader()),
 //                   ],
 
-//                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg"),
-//                   buildMenuItem(3, "Properties", "assets/svg/properties.svg"),
-//                   buildMenuItem(4, "Settings", "assets/svg/settings.svg"),
-//                   buildMenuItem(5, "Logout", "assets/svg/logout.svg"),
+//                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg",() => FollowUp()),
+//                   buildMenuItem(3, "Properties", "assets/svg/properties.svg",() => Property()),
+//                   buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property()),
+//                   buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage()),
 //                 ],
 //               ),
 //             ),
@@ -353,15 +578,21 @@
 //   }
 
 //   /// Method to Build Main Menu Items
-//   Widget buildMenuItem(int index, String text, String iconPath) {
+//   Widget buildMenuItem(int index, String text, String iconPath,Widget classCall()) {
 //     bool isSelected = _selectedIndex == index; // Check if selected
 
 //     return GestureDetector(
 //       onTap: () {
 //         setState(() {
 //           _selectedIndex = index;
+//           _selectedSubIndex = null; // Reset submenu selection
+//           _isLeadsExpanded = false; // Collapse Leads dropdown when selecting other menu items
 //         });
-//         Navigator.pop(context); // Close drawer on selection
+//         Navigator.pop(context);
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context)=>classCall()),
+//         ); // Close drawer on selection
 //       },
 //       child: Container(
 //         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -389,21 +620,748 @@
 //   }
 
 //   /// Method to Build Submenu Items
-//   Widget buildSubMenuItem(String text, String iconPath) {
-//     return Padding(
-//       padding: const EdgeInsets.only(left: 40, top: 8, bottom: 5),
+//   Widget buildSubMenuItem(int subIndex, String text, String iconPath, Widget classCall()) {
+//     bool isSelected = _selectedSubIndex == subIndex; // Check if submenu is selected
+
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedSubIndex = subIndex;
+//           _selectedIndex = 1; // Keep Leads highlighted
+//         });
+//         Navigator.pop(context); // Close drawer on selection
+//         Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+//       },
+//       child: Padding(
+//         padding: const EdgeInsets.only(left: 40, top: 8, bottom: 5),
+//         child: Container(
+//           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+//           decoration: BoxDecoration(
+//             color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//             borderRadius: BorderRadius.circular(10),
+//           ),
+//           child: Row(
+//             children: [
+//               SvgPicture.asset(iconPath, color: Colors.white, width: 20),
+//               const SizedBox(width: 10),
+//               Text(
+//                 text,
+//                 style: GoogleFonts.dmSans(
+//                   fontWeight: FontWeight.w600,
+//                   fontSize: 16,
+//                   color: Colors.white,
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// import 'dart:math'; // Import for min function
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:real_estate/dashboard/dashboard.dart';
+// import 'package:real_estate/followup/follow_ups.dart';
+// import 'package:real_estate/leads/add_lead.dart';
+// import 'package:real_estate/leads/assigned_lead.dart';
+// import 'package:real_estate/login%20screens/login.dart';
+// import 'package:real_estate/properties/properties.dart';
+
+// class AppDrawer extends StatefulWidget {
+//   const AppDrawer({super.key});
+
+//   @override
+//   _AppDrawerState createState() => _AppDrawerState();
+// }
+
+// class _AppDrawerState extends State<AppDrawer>
+//     with SingleTickerProviderStateMixin {
+//   late AnimationController _controller;
+//   int? _selectedIndex = 0;
+//   int? _selectedSubIndex;
+//   bool _isLeadsExpanded = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 500),
+//     )..forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double width = MediaQuery.of(context).size.width;
+//     double height = MediaQuery.of(context).size.height;
+//     double baseSize = min(width, height); // Ensures uniform scaling
+
+//     return Drawer(
+//       child: AnimatedBuilder(
+//         animation: _controller,
+//         builder: (context, child) {
+//           return Container(
+//             decoration: const BoxDecoration(
+//               color: Color.fromRGBO(14, 39, 63, 1),
+//             ),
+//             child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+//               child: Column(
+//                 children: [
+//                   /// Profile Section
+//                   Padding(
+//                     padding: EdgeInsets.only(top: baseSize * 0.02),
+//                     child: Row(
+//                       children: [
+//                         Container(
+//                           height: baseSize * 0.12,
+//                           width: baseSize * 0.12,
+//                           decoration: const BoxDecoration(shape: BoxShape.circle),
+//                           child: SvgPicture.asset(
+//                             "assets/svg/Avatar.svg",
+//                             fit: BoxFit.contain,
+//                           ),
+//                         ),
+//                         SizedBox(width: width * 0.02),
+//                         Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Text(
+//                               "John Doe",
+//                               style: GoogleFonts.dmSans(
+//                                 color: Colors.white,
+//                                 fontWeight: FontWeight.w600,
+//                                 fontSize: baseSize * 0.035,
+//                               ),
+//                             ),
+//                             Text(
+//                               "+91 8888888888",
+//                               style: GoogleFonts.dmSans(
+//                                 color: Color.fromRGBO(209, 211, 212, 1),
+//                                 fontWeight: FontWeight.w400,
+//                                 fontSize: baseSize * 0.02,
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                         const Spacer(),
+//                         GestureDetector(
+//                           onTap: () => Navigator.pop(context),
+//                           child: Icon(
+//                             Icons.close,
+//                             color: Color.fromRGBO(209, 211, 212, 1),
+//                             size: baseSize * 0.05,
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   SizedBox(height: baseSize * 0.04),
+
+//                   /// Menu Items
+//                   buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg", ()=> DashBoard()),
+
+//                   /// Leads with Dropdown
+//                   GestureDetector(
+//                     onTap: () {
+//                       setState(() {
+//                         _isLeadsExpanded = !_isLeadsExpanded;
+//                         _selectedIndex = _isLeadsExpanded ? 1 : null;
+//                       });
+//                     },
+//                     child: Container(
+//                       padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//                       decoration: BoxDecoration(
+//                         color: _selectedIndex == 1 ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//                         borderRadius: BorderRadius.circular(10),
+//                       ),
+//                       child: Row(
+//                         children: [
+//                           SvgPicture.asset("assets/svg/Icon- Outline.svg",
+//                               color: Colors.white, width: baseSize * 0.06),
+//                           const SizedBox(width: 10),
+//                           Expanded(
+//                             child: Text(
+//                               "Leads",
+//                               style: GoogleFonts.dmSans(
+//                                 fontWeight: FontWeight.w600,
+//                                 fontSize: baseSize * 0.025,
+                                
+//                                 color: Colors.white,
+//                               ),
+//                             ),
+//                           ),
+//                           Icon(
+//                             _isLeadsExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+//                             color: Colors.white,
+//                             size: baseSize * 0.04,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+
+//                   if (_isLeadsExpanded) ...[
+//                     buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg", () => AssignedLeads()),
+//                     buildSubMenuItem(1, "Generate New Lead", "assets/svg/new_lead.svg", () => AddLeader()),
+//                   ],
+
+//                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg", () => FollowUp()),
+//                   buildMenuItem(3, "Properties", "assets/svg/properties.svg", () => Property()),
+//                   buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property()),
+//                   buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage()),
+//                 ],
+//               ),
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+
+//   /// Method to Build Main Menu Items
+//   Widget buildMenuItem(int index, String text, String iconPath, Widget classCall()) {
+//     double baseSize = min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
+
+//     bool isSelected = _selectedIndex == index;
+
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedIndex = index;
+//           _selectedSubIndex = null;
+//           _isLeadsExpanded = false;
+//         });
+//         Navigator.pop(context);
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context) => classCall()),
+//         );
+//       },
+//       child: Container(
+//         padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//         margin: EdgeInsets.only(bottom: baseSize * 0.015),
+//         decoration: BoxDecoration(
+//           color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//           borderRadius: BorderRadius.circular(10),
+//         ),
+//         child: Row(
+//           children: [
+//             SvgPicture.asset(iconPath, color: Colors.white, width: baseSize * 0.06),
+//             const SizedBox(width: 10),
+//             Text(
+//               text,
+//               style: GoogleFonts.dmSans(
+//                 fontWeight: FontWeight.w600,
+//                 fontSize: baseSize * 0.03,
+//                 color: Colors.white,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   /// Method to Build Submenu Items
+//   Widget buildSubMenuItem(int subIndex, String text, String iconPath, Widget classCall()) {
+//     bool isSelected = _selectedSubIndex == subIndex; // Check if submenu is selected
+
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedSubIndex = subIndex;
+//           _selectedIndex = 1; // Keep Leads highlighted
+//         });
+//         Navigator.pop(context); // Close drawer on selection
+//         Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+//       },
+//       child: Padding(
+//         padding: const EdgeInsets.only(left: 40, top: 8, bottom: 5),
+//         child: Container(
+//           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+//           decoration: BoxDecoration(
+//             color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//             borderRadius: BorderRadius.circular(10),
+//           ),
+//           child: Row(
+//             children: [
+//               SvgPicture.asset(iconPath, color: Colors.white, width: 20),
+//               const SizedBox(width: 10),
+//               Text(
+//                 text,
+//                 style: GoogleFonts.dmSans(
+//                   fontWeight: FontWeight.w600,
+//                   fontSize: 16,
+//                   color: Colors.white,
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+// import 'dart:math'; // Import for min function
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:real_estate/dashboard/dashboard.dart';
+// import 'package:real_estate/followup/follow_ups.dart';
+// import 'package:real_estate/leads/add_lead.dart';
+// import 'package:real_estate/leads/assigned_lead.dart';
+// import 'package:real_estate/login%20screens/login.dart';
+// import 'package:real_estate/properties/properties.dart';
+
+// class AppDrawer extends StatefulWidget {
+//   const AppDrawer({super.key});
+
+//   @override
+//   _AppDrawerState createState() => _AppDrawerState();
+// }
+
+// class _AppDrawerState extends State<AppDrawer>
+//     with SingleTickerProviderStateMixin {
+//   late AnimationController _controller;
+//   int? _selectedIndex = 0;
+//   int? _selectedSubIndex;
+//   bool _isLeadsExpanded = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 500),
+//     )..forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double width = MediaQuery.of(context).size.width;
+//     double height = MediaQuery.of(context).size.height;
+//     double baseSize = min(width, height);
+//     double textScaleFactor = MediaQuery.of(context).textScaleFactor; // Scale for font sizes
+
+//     return Drawer(
+//       child: AnimatedBuilder(
+//         animation: _controller,
+//         builder: (context, child) {
+//           return Container(
+//             decoration: const BoxDecoration(
+//               color: Color.fromRGBO(14, 39, 63, 1),
+//             ),
+//             child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+//               child: Column(
+//                 children: [
+//                   /// Profile Section
+//                   Padding(
+//                     padding: EdgeInsets.only(top: baseSize * 0.02),
+//                     child: Row(
+//                       children: [
+//                         Container(
+//                           height: baseSize * 0.12,
+//                           width: baseSize * 0.12,
+//                           decoration: const BoxDecoration(shape: BoxShape.circle),
+//                           child: SvgPicture.asset(
+//                             "assets/svg/Avatar.svg",
+//                             fit: BoxFit.contain,
+//                           ),
+//                         ),
+//                         SizedBox(width: width * 0.02),
+//                         Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Text(
+//                               "John Doe",
+//                               style: GoogleFonts.dmSans(
+//                                 color: Colors.white,
+//                                 fontWeight: FontWeight.w600,
+//                                 fontSize: max(baseSize * 0.035, 16) * textScaleFactor,
+//                               ),
+//                             ),
+//                             Text(
+//                               "+91 8888888888",
+//                               style: GoogleFonts.dmSans(
+//                                 color: Color.fromRGBO(209, 211, 212, 1),
+//                                 fontWeight: FontWeight.w400,
+//                                 fontSize: max(baseSize * 0.02, 12) * textScaleFactor,
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                         const Spacer(),
+//                         GestureDetector(
+//                           onTap: () => Navigator.pop(context),
+//                           child: Icon(
+//                             Icons.close,
+//                             color: Color.fromRGBO(209, 211, 212, 1),
+//                             size: baseSize * 0.05,
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   SizedBox(height: baseSize * 0.04),
+
+//                   /// Menu Items
+//                   buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg", ()=> DashBoard(), textScaleFactor),
+
+//                   /// Leads with Dropdown
+//                   GestureDetector(
+//                     onTap: () {
+//                       setState(() {
+//                         _isLeadsExpanded = !_isLeadsExpanded;
+//                         _selectedIndex = _isLeadsExpanded ? 1 : null;
+//                       });
+//                     },
+//                     child: Container(
+//                       padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//                       decoration: BoxDecoration(
+//                         color: _selectedIndex == 1 ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//                         borderRadius: BorderRadius.circular(10),
+//                       ),
+//                       child: Row(
+//                         children: [
+//                           SvgPicture.asset("assets/svg/Icon- Outline.svg",
+//                               color: Colors.white, width: baseSize * 0.06),
+//                           const SizedBox(width: 10),
+//                           Expanded(
+//                             child: Text(
+//                               "Leads",
+//                               style: GoogleFonts.dmSans(
+//                                 fontWeight: FontWeight.w600,
+//                                 fontSize: max(baseSize * 0.03, 14) * textScaleFactor,
+//                                 color: Colors.white,
+//                               ),
+//                             ),
+//                           ),
+//                           Icon(
+//                             _isLeadsExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+//                             color: Colors.white,
+//                             size: baseSize * 0.04,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+
+//                   if (_isLeadsExpanded) ...[
+//                     buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg", () => AssignedLeads(), textScaleFactor),
+//                     buildSubMenuItem(1, "Generate New Lead", "assets/svg/new_lead.svg", () => AddLeader(), textScaleFactor),
+//                   ],
+
+//                   buildMenuItem(2, "Follow ups", "assets/svg/follow.svg", () => FollowUp(), textScaleFactor),
+//                   buildMenuItem(3, "Properties", "assets/svg/properties.svg", () => Property(), textScaleFactor),
+//                   buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property(), textScaleFactor),
+//                   buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage(), textScaleFactor),
+//                 ],
+//               ),
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+
+//   /// Method to Build Main Menu Items
+//   Widget buildMenuItem(int index, String text, String iconPath, Widget classCall(), double textScaleFactor) {
+//     double baseSize = min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
+//     bool isSelected = _selectedIndex == index;
+
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedIndex = index;
+//           _selectedSubIndex = null;
+//           _isLeadsExpanded = false;
+//         });
+//         Navigator.pop(context);
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context) => classCall()),
+//         );
+//       },
+//       child: Container(
+//         padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//         margin: EdgeInsets.only(bottom: baseSize * 0.015),
+//         decoration: BoxDecoration(
+//           color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//           borderRadius: BorderRadius.circular(10),
+//         ),
+//         child: Row(
+//           children: [
+//             SvgPicture.asset(iconPath, color: Colors.white, width: baseSize * 0.06),
+//             const SizedBox(width: 10),
+//             Text(
+//               text,
+//               style: GoogleFonts.dmSans(
+//                 fontWeight: FontWeight.w600,
+//                 fontSize: max(baseSize * 0.03, 14) * textScaleFactor,
+//                 color: Colors.white,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//    /// Method to Build Submenu Items
+//   Widget buildSubMenuItem(int subIndex, String text, String iconPath, Widget classCall(), double textScaleFactor) {
+//   double baseSize = min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
+//   bool isSelected = _selectedSubIndex == subIndex;
+
+//   return GestureDetector(
+//     onTap: () {
+//       setState(() {
+//         _selectedSubIndex = subIndex;
+//         _selectedIndex = 1; // Keep Leads highlighted
+//       });
+//       Navigator.pop(context);
+//       Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+//     },
+//     child: Padding(
+//       padding: EdgeInsets.only(left: baseSize * 0.08, top: baseSize * 0.015, bottom: baseSize * 0.01),
+//       child: Container(
+//         padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//         decoration: BoxDecoration(
+//           color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
+//           borderRadius: BorderRadius.circular(10),
+//         ),
+//         child: Row(
+//           children: [
+//             SvgPicture.asset(iconPath, color: Colors.white, width: max(baseSize * 0.06, 20)),
+//             const SizedBox(width: 10),
+//             Text(
+//               text,
+//               style: GoogleFonts.dmSans(
+//                 fontWeight: FontWeight.w600,
+//                 fontSize: max(baseSize * 0.03, 14) * textScaleFactor,
+//                 color: Colors.white,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// }
+
+
+
+// import 'dart:math';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:real_estate/dashboard/dashboard.dart';
+// import 'package:real_estate/followup/follow_ups.dart';
+// import 'package:real_estate/leads/add_lead.dart';
+// import 'package:real_estate/leads/assigned_lead.dart';
+// import 'package:real_estate/login%20screens/login.dart';
+// import 'package:real_estate/properties/properties.dart';
+
+// class AppDrawer extends StatefulWidget {
+//   const AppDrawer({super.key});
+
+//   @override
+//   _AppDrawerState createState() => _AppDrawerState();
+// }
+
+// class _AppDrawerState extends State<AppDrawer>
+//     with SingleTickerProviderStateMixin {
+//   late AnimationController _controller;
+//   int? _selectedIndex = 0;
+//   int? _selectedSubIndex;
+//   bool _isLeadsExpanded = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 500),
+//     )..forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double width = MediaQuery.of(context).size.width;
+//     double height = MediaQuery.of(context).size.height;
+//     double baseSize = min(width, height);
+//     double textScaleFactor = MediaQuery.of(context).textScaleFactor;
+
+//     return Drawer(
+//       width: MediaQuery.of(context).size.width * 0.75,
+//       child: AnimatedBuilder(
+//         animation: _controller,
+//         builder: (context, child) {
+//           return Container(
+//             color: const Color.fromRGBO(14, 39, 63, 1),
+//             padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height*0.05),
+//             child: Column(
+//               children: [
+//                 /// Profile Section
+//                 Padding(
+//                   padding: EdgeInsets.only(top: baseSize * 0.02),
+//                   child: Row(
+//                     children: [
+//                       CircleAvatar(
+//                         radius: baseSize * 0.06,
+//                         backgroundColor: Colors.grey[300],
+//                         child: SvgPicture.asset(
+//                           "assets/svg/Avatar.svg",
+//                           fit: BoxFit.contain,
+//                           width: baseSize * 0.1,
+//                         ),
+//                       ),
+//                       SizedBox(width: width * 0.02),
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Text(
+//                             "John Doe",
+//                             style: GoogleFonts.dmSans(
+//                               color: Colors.white,
+//                               fontWeight: FontWeight.w600,
+//                               fontSize: max(baseSize * 0.035, 16) * textScaleFactor,
+//                             ),
+//                           ),
+//                           Text(
+//                             "+91 8888888888",
+//                             style: GoogleFonts.dmSans(
+//                               color: Colors.grey[400],
+//                               fontWeight: FontWeight.w400,
+//                               fontSize: max(baseSize * 0.02, 12) * textScaleFactor,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                       const Spacer(),
+//                       GestureDetector(
+//                         onTap: () => Navigator.pop(context),
+//                         child: Icon(
+//                           Icons.close,
+//                           color: Colors.grey[400],
+//                           size: baseSize * 0.05,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+
+//                 SizedBox(height: baseSize * 0.04),
+
+//                 /// Menu Items
+//                 buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg", () => DashBoard(), textScaleFactor),
+                
+//                 /// Leads Dropdown
+//                 GestureDetector(
+//                   onTap: () {
+//                     setState(() {
+//                       _isLeadsExpanded = !_isLeadsExpanded;
+//                       _selectedIndex = _isLeadsExpanded ? 1 : null;
+//                     });
+//                   },
+//                   child: buildExpandableMenuItem("Leads", "assets/svg/Icon- Outline.svg", _isLeadsExpanded, baseSize, textScaleFactor,_isLeadsExpanded),
+//                 ),
+//                 if (_isLeadsExpanded) ...[
+//                   buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg", () => AssignedLeads(), textScaleFactor),
+//                   buildSubMenuItem(1, "Generate New Lead", "assets/svg/new_lead.svg", () => AddLeader(), textScaleFactor),
+//                 ],
+                
+//                 buildMenuItem(2, "Follow ups", "assets/svg/follow.svg", () => FollowUp(), textScaleFactor),
+//                 buildMenuItem(3, "Properties", "assets/svg/properties.svg", () => Property(), textScaleFactor),
+//                 buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property(), textScaleFactor),
+//                 buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage(), textScaleFactor),
+//               ],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+
+//   Widget buildMenuItem(int index, String text, String iconPath, Widget Function() classCall, double textScaleFactor) {
+//     bool isSelected = _selectedIndex == index;
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedIndex = index;
+//           _selectedSubIndex = null;
+//           _isLeadsExpanded = false;
+//         });
+//         Navigator.pop(context);
+//         Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+//       },
+//       child: buildExpandableMenuItem(text, iconPath, isSelected, min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height), textScaleFactor,_isLeadsExpanded),
+//     );
+//   }
+
+//   Widget buildSubMenuItem(int subIndex, String text, String iconPath, Widget Function() classCall, double textScaleFactor) {
+//     bool isSelected = _selectedSubIndex == subIndex;
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           _selectedSubIndex = subIndex;
+//           _selectedIndex = 1;
+//         });
+//         Navigator.pop(context);
+//         Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+//       },
+//       child: Padding(
+//         padding: EdgeInsets.only(left: 40, top: 8, bottom: 5),
+//         child: buildExpandableMenuItem(text, iconPath, isSelected, min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height), textScaleFactor,_isLeadsExpanded),
+//       ),
+//     );
+//   }
+
+//   Widget buildExpandableMenuItem(String text, String iconPath, bool isSelected, double baseSize, double textScaleFactor, bool isExpanded) {
+//     return Container(
+//       padding: EdgeInsets.symmetric(vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+//       decoration: BoxDecoration(
+//         color: isSelected ? Colors.white.withOpacity(0.2) : Colors.transparent,
+//         borderRadius: BorderRadius.circular(10),
+//       ),
 //       child: Row(
 //         children: [
-//           SvgPicture.asset(iconPath, color: Colors.white, width: 20),
+//           SvgPicture.asset(iconPath, color: Colors.white, width: baseSize * 0.06),
 //           const SizedBox(width: 10),
-//           Text(
-//             text,
-//             style: GoogleFonts.dmSans(
-//               fontWeight: FontWeight.w600,
-//               fontSize: 16,
-//               color: Colors.white,
-//             ),
-//           ),
+//           Text(text, style: GoogleFonts.dmSans(fontWeight: FontWeight.w600, fontSize: max(baseSize * 0.03, 14) * textScaleFactor, color: Colors.white)),
+//           Icon(
+//           isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, 
+//           color: Colors.white,
+//         ),
 //         ],
 //       ),
 //     );
@@ -412,8 +1370,9 @@
 
 
 
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/dashboard/dashboard.dart';
 import 'package:real_estate/followup/follow_ups.dart';
@@ -432,9 +1391,9 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  int? _selectedIndex = 0; // Track selected main menu item
-  int? _selectedSubIndex; // Track selected submenu item
-  bool _isLeadsExpanded = false; // Track Leads dropdown state
+  int? _selectedIndex = 0;
+  int? _selectedSubIndex;
+  bool _isLeadsExpanded = false;
 
   @override
   void initState() {
@@ -455,121 +1414,111 @@ class _AppDrawerState extends State<AppDrawer>
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    double baseSize = min(width, height);
+    double textScaleFactor = MediaQuery.of(context).textScaleFactor;
 
     return Drawer(
+      width: MediaQuery.of(context).size.width * 0.75,
       child: AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
           return Container(
-            decoration: const BoxDecoration(
-              color: Color.fromRGBO(14, 39, 63, 1),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  /// Profile Section
-                  Padding(
-                    padding: const EdgeInsets.only(top: 17.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: height * 0.07,
-                          width: width * 0.14,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
-                          child: SvgPicture.asset(
-                            "assets/svg/Avatar.svg",
-                            fit: BoxFit.contain,
-                          ),
+            color: const Color.fromRGBO(14, 39, 63, 1),
+            padding: EdgeInsets.symmetric(
+                horizontal: width * 0.03, vertical: height * 0.05),
+            child: Column(
+              children: [
+                /// Profile Section
+                Padding(
+                  padding: EdgeInsets.only(top: baseSize * 0.02),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: baseSize * 0.06,
+                        backgroundColor: Colors.grey[300],
+                        child: SvgPicture.asset(
+                          "assets/svg/Avatar.svg",
+                          fit: BoxFit.contain,
+                          width: baseSize * 0.1,
                         ),
-                        SizedBox(width: width * 0.04),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "John Doe",
-                              style: GoogleFonts.dmSans(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: height * 0.02,
-                              ),
-                            ),
-                            Text(
-                              "+91 8888888888",
-                              style: GoogleFonts.dmSans(
-                                color: Color.fromRGBO(209, 211, 212, 1),
-                                fontWeight: FontWeight.w400,
-                                fontSize: height * 0.015,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: () => Navigator.pop(context), // Close drawer
-                          child: Icon(
-                            Icons.close,
-                            color: Color.fromRGBO(209, 211, 212, 1),
-                            size: width * 0.075,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: height * 0.04),
-
-                  /// Menu Items
-                  buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg",()=> DashBoard()),
-
-                  /// Leads with Dropdown
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _isLeadsExpanded = !_isLeadsExpanded;
-                        _selectedIndex = _isLeadsExpanded ? 1 : null; // Keep "Leads" highlighted when expanded
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                      decoration: BoxDecoration(
-                        color: _selectedIndex == 1 ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Row(
+                      SizedBox(width: width * 0.02),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SvgPicture.asset("assets/svg/Icon- Outline.svg", color: Colors.white),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Text(
-                              "Leads",
-                              style: GoogleFonts.dmSans(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
+                          Text(
+                            "John Doe",
+                            style: GoogleFonts.dmSans(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize:
+                                  max(baseSize * 0.035, 16) * textScaleFactor,
                             ),
                           ),
-                          Icon(
-                            _isLeadsExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                            color: Colors.white,
+                          Text(
+                            "+91 8888888888",
+                            style: GoogleFonts.dmSans(
+                              color: Colors.grey[400],
+                              fontWeight: FontWeight.w400,
+                              fontSize:
+                                  max(baseSize * 0.02, 12) * textScaleFactor,
+                            ),
                           ),
                         ],
                       ),
-                    ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.grey[400],
+                          size: baseSize * 0.05,
+                        ),
+                      ),
+                    ],
                   ),
+                ),
 
-                  if (_isLeadsExpanded) ...[
-                    buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg",() => AssignedLeads()),
-                    buildSubMenuItem(1, "Generate New Lead", "assets/svg/new_lead.svg",() => AddLeader()),
-                  ],
+                SizedBox(height: baseSize * 0.04),
 
-                  buildMenuItem(2, "Follow ups", "assets/svg/follow.svg",() => FollowUp()),
-                  buildMenuItem(3, "Properties", "assets/svg/properties.svg",() => Property()),
-                  buildMenuItem(4, "Settings", "assets/svg/settings.svg", () => Property()),
-                  buildMenuItem(5, "Logout", "assets/svg/logout.svg", () => LoginPage()),
+                /// Menu Items
+                buildMenuItem(0, "Dashboard", "assets/svg/Menu icon.svg",
+                    () => DashBoard(), textScaleFactor),
+
+                /// Leads Dropdown
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isLeadsExpanded = !_isLeadsExpanded;
+                      _selectedIndex = _isLeadsExpanded ? 1 : null;
+                    });
+                  },
+                  child: buildExpandableMenuItem(
+                    "Leads",
+                    "assets/svg/Icon- Outline.svg",
+                    _isLeadsExpanded,
+                    baseSize,
+                    textScaleFactor,
+                    _isLeadsExpanded,
+                    showArrow: true, // ✅ Show arrow for Leads only
+                  ),
+                ),
+                if (_isLeadsExpanded) ...[
+                  buildSubMenuItem(0, "My Leads", "assets/svg/my_leads.svg",
+                      () => AssignedLeads(), textScaleFactor),
+                  buildSubMenuItem(1, "Generate New Lead",
+                      "assets/svg/new_lead.svg", () => AddLeader(), textScaleFactor),
                 ],
-              ),
+
+                buildMenuItem(2, "Follow ups", "assets/svg/follow.svg",
+                    () => FollowUp(), textScaleFactor),
+                buildMenuItem(3, "Properties", "assets/svg/properties.svg",
+                    () => Property(), textScaleFactor),
+                buildMenuItem(4, "Settings", "assets/svg/settings.svg",
+                    () => Property(), textScaleFactor),
+                buildMenuItem(5, "Logout", "assets/svg/logout.svg",
+                    () => LoginPage(), textScaleFactor),
+              ],
             ),
           );
         },
@@ -577,84 +1526,91 @@ class _AppDrawerState extends State<AppDrawer>
     );
   }
 
-  /// Method to Build Main Menu Items
-  Widget buildMenuItem(int index, String text, String iconPath,Widget classCall()) {
-    bool isSelected = _selectedIndex == index; // Check if selected
-
+  Widget buildMenuItem(int index, String text, String iconPath,
+      Widget Function() classCall, double textScaleFactor) {
+    bool isSelected = _selectedIndex == index;
     return GestureDetector(
       onTap: () {
         setState(() {
           _selectedIndex = index;
-          _selectedSubIndex = null; // Reset submenu selection
-          _isLeadsExpanded = false; // Collapse Leads dropdown when selecting other menu items
+          _selectedSubIndex = null;
+          _isLeadsExpanded = false;
         });
         Navigator.pop(context);
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context)=>classCall()),
-        ); // Close drawer on selection
+            context, MaterialPageRoute(builder: (context) => classCall()));
       },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        margin: const EdgeInsets.only(bottom: 10),
-        decoration: BoxDecoration(
-          color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          children: [
-            SvgPicture.asset(iconPath, color: Colors.white),
-            const SizedBox(width: 10),
-            Text(
-              text,
-              style: GoogleFonts.dmSans(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: buildExpandableMenuItem(
+          text,
+          iconPath,
+          isSelected,
+          min(MediaQuery.of(context).size.width,
+              MediaQuery.of(context).size.height),
+          textScaleFactor,
+          _isLeadsExpanded),
     );
   }
 
-  /// Method to Build Submenu Items
-  Widget buildSubMenuItem(int subIndex, String text, String iconPath, Widget classCall()) {
-    bool isSelected = _selectedSubIndex == subIndex; // Check if submenu is selected
-
+  Widget buildSubMenuItem(int subIndex, String text, String iconPath,
+      Widget Function() classCall, double textScaleFactor) {
+    bool isSelected = _selectedSubIndex == subIndex;
     return GestureDetector(
       onTap: () {
         setState(() {
           _selectedSubIndex = subIndex;
-          _selectedIndex = 1; // Keep Leads highlighted
+          _selectedIndex = 1;
         });
-        Navigator.pop(context); // Close drawer on selection
-        Navigator.push(context, MaterialPageRoute(builder: (context) => classCall()));
+        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => classCall()));
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 40, top: 8, bottom: 5),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          decoration: BoxDecoration(
-            color: isSelected ? Color.fromRGBO(255, 255, 255, 0.2) : Colors.transparent,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
+        padding: EdgeInsets.only(left: 40, top: 8, bottom: 5),
+        child: buildExpandableMenuItem(
+            text,
+            iconPath,
+            isSelected,
+            min(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height),
+            textScaleFactor,
+            _isLeadsExpanded),
+      ),
+    );
+  }
+
+  Widget buildExpandableMenuItem(String text, String iconPath, bool isSelected,
+      double baseSize, double textScaleFactor, bool isExpanded,
+      {bool showArrow = false}) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.symmetric(
+          vertical: baseSize * 0.015, horizontal: baseSize * 0.03),
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.white.withOpacity(0.2) : Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
             children: [
-              SvgPicture.asset(iconPath, color: Colors.white, width: 20),
+              SvgPicture.asset(iconPath,
+                  color: Colors.white, width: baseSize * 0.06),
               const SizedBox(width: 10),
-              Text(
-                text,
-                style: GoogleFonts.dmSans(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-              ),
+              Text(text,
+                  style: GoogleFonts.dmSans(
+                      fontWeight: FontWeight.w600,
+                      fontSize:
+                          max(baseSize * 0.03, 14) * textScaleFactor,
+                      color: Colors.white)),
             ],
           ),
-        ),
+          if (showArrow) // ✅ Show expand/collapse icon only for Leads
+            Icon(
+              isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+              color: Colors.white,
+            ),
+        ],
       ),
     );
   }

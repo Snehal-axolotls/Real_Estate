@@ -15,10 +15,12 @@ class AssignedLeads extends StatefulWidget {
 }
 
 class _AssignedLeadsState extends State<AssignedLeads> {
-
   DateTime selectedDate = DateTime.now();
-  
-  Future<void> _selectDate(BuildContext context, Function(DateTime) onDateSelected) async {
+
+  Future<void> _selectDate(
+    BuildContext context,
+    Function(DateTime) onDateSelected,
+  ) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate,
@@ -76,6 +78,8 @@ class _AssignedLeadsState extends State<AssignedLeads> {
 
   @override
   Widget build(BuildContext context) {
+    TextScaler textScaler = MediaQuery.of(context).textScaler;
+
     List<Map<String, String>> filteredLeads =
         leads.where((lead) {
           bool matchesStatus =
@@ -93,7 +97,8 @@ class _AssignedLeadsState extends State<AssignedLeads> {
           "My Assigned Leads",
           style: GoogleFonts.dmSans(
             fontWeight: FontWeight.w600,
-            fontSize: 19,
+            fontSize: textScaler.scale(19.0
+            ),
             color: Colors.white,
           ),
         ),
@@ -137,7 +142,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                       decoration: InputDecoration(
                         hintText: "Search ",
                         hintStyle: GoogleFonts.dmSans(
-                          fontSize: 14,
+                          fontSize: textScaler.scale(14.0),
                           fontWeight: FontWeight.w500,
                           color: const Color.fromRGBO(159, 171, 183, 1),
                         ),
@@ -168,7 +173,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                         Text(
                                           filter,
                                           style: GoogleFonts.dmSans(
-                                            fontSize: 14,
+                                            fontSize: textScaler.scale(14.0),
                                           ),
                                         ),
                                       ],
@@ -196,7 +201,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                           Text(
                             selectedFilter,
                             style: GoogleFonts.dmSans(
-                              fontSize: 14,
+                              fontSize: textScaler.scale(14.0),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -226,13 +231,14 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   lead['interest']!,
                   lead['status']!,
                   lead['followUp']!,
+                  textScaler,
                 );
               },
             ),
           ),
         ],
       ),
-      bottomNavigationBar:CustomBottomNavBar(selectedIndex: 1)
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 1),
     );
   }
 
@@ -244,6 +250,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
     String interest,
     String status,
     String followUp,
+    dynamic textScaler,
   ) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -263,7 +270,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   name,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: textScaler.scale(16.0),
                     color: const Color.fromRGBO(21, 95, 165, 1),
                   ),
                 ),
@@ -278,7 +285,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                     child: Text(
                       "View Details",
                       style: GoogleFonts.dmSans(
-                        fontSize: 9,
+                        fontSize: textScaler.scale(9.0),
                         color: const Color.fromRGBO(0, 122, 255, 1),
                         fontWeight: FontWeight.w500,
                         decoration: TextDecoration.underline,
@@ -301,7 +308,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   "Phone             :",
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontSize: textScaler.scale(14.0),
                     color: const Color.fromRGBO(21, 95, 165, 1),
                   ),
                 ),
@@ -310,7 +317,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   phone,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: textScaler.scale(12.0),
                     color: const Color.fromRGBO(52, 78, 104, 1),
                   ),
                 ),
@@ -329,7 +336,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   "Interested In  :",
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontSize: textScaler.scale(14.0),
                     color: const Color.fromRGBO(21, 95, 165, 1),
                   ),
                 ),
@@ -338,7 +345,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   interest,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: textScaler.scale(12.0),
                     color: const Color.fromRGBO(52, 78, 104, 1),
                   ),
                 ),
@@ -357,7 +364,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   "Status             :",
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontSize: textScaler.scale(14.0),
                     color: const Color.fromRGBO(21, 95, 165, 1),
                   ),
                 ),
@@ -366,7 +373,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   status,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: textScaler.scale(12.0),
                     color: const Color.fromRGBO(52, 78, 104, 1),
                   ),
                 ),
@@ -385,7 +392,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   "Follow Up       :",
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontSize: textScaler.scale(14.0),
                     color: const Color.fromRGBO(21, 95, 165, 1),
                   ),
                 ),
@@ -394,7 +401,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   followUp,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: textScaler.scale(12.0),
                     color: const Color.fromRGBO(52, 78, 104, 1),
                   ),
                 ),
@@ -406,8 +413,10 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LeadDetails()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LeadDetails()),
+                      );
                     },
                     child: Container(
                       height: 25,
@@ -421,7 +430,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                         "View Details",
                         style: GoogleFonts.dmSans(
                           fontWeight: FontWeight.w500,
-                          fontSize: 9,
+                          fontSize: textScaler.scale(9.0),
                           color: const Color.fromRGBO(9, 67, 124, 1),
                         ),
                       ),
@@ -434,11 +443,12 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                         context: context,
                         builder:
                             (context) => AlertDialog(
+                              backgroundColor: Colors.white,
                               title: Text(
                                 "Are You Sure You Want To \n Call John Doe ?",
                                 style: GoogleFonts.dmSans(
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 18,
+                                  fontSize: textScaler.scale(18.0),
                                   color: const Color.fromRGBO(21, 95, 165, 1),
                                 ),
                                 textAlign: TextAlign.center,
@@ -469,7 +479,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                       "Yes",
                                       style: GoogleFonts.dmSans(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 18,
+                                        fontSize: textScaler.scale(18.0),
                                         color: const Color.fromRGBO(
                                           255,
                                           255,
@@ -480,7 +490,8 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                     ),
                                   ),
                                 ),
-                                Spacer(),
+                                SizedBox(width:MediaQuery.of(context).size.width*0.05
+                                ),
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
@@ -495,7 +506,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                       "Cancel",
                                       style: GoogleFonts.dmSans(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 18,
+                                        fontSize: textScaler.scale(18.0),
                                         color: const Color.fromRGBO(
                                           208,
                                           100,
@@ -531,7 +542,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                             "Call",
                             style: GoogleFonts.dmSans(
                               fontWeight: FontWeight.w500,
-                              fontSize: 9,
+                              fontSize: textScaler.scale(9.0),
                               color: const Color.fromRGBO(9, 67, 124, 1),
                             ),
                           ),
@@ -543,123 +554,176 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   GestureDetector(
                     onTap: () {
                       showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-        child: Container(
-          padding: const EdgeInsets.all(20.0),
-          width: MediaQuery.of(context).size.width * 0.8,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              /// Title
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Schedule Follow Up",
-                    style: GoogleFonts.dmSans(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: const Color.fromRGBO(14, 39, 63, 1),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: const Icon(Icons.close, color: Colors.black54),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                              backgroundColor: Colors.white,
 
-              /// Date Picker 1
-              GestureDetector(
-                onTap: () => _selectDate(context, (date) {
-                  selectedDate = date;
-                }),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.calendar_today, color: Colors.black54),
-                      const SizedBox(width: 10),
-                      Text(
-                        DateFormat.yMMMMd().format(selectedDate),
-                        style: GoogleFonts.dmSans(fontSize: 16, color: Colors.black87),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: Container(
+                              padding: const EdgeInsets.all(20.0),
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  /// Title
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Schedule Follow Up",
+                                        style: GoogleFonts.dmSans(
+                                          fontSize: textScaler.scale(18.0),
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color.fromRGBO(
+                                            14,
+                                            39,
+                                            63,
+                                            1,
+                                          ),
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () => Navigator.pop(context),
+                                        child: const Icon(
+                                          Icons.close,
+                                          color: Colors.black54,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
 
-              /// Date Picker 2 (Optional second date)
-              GestureDetector(
-                onTap: () => _selectDate(context, (date) {
-                  selectedDate = date;
-                }),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.access_time, color: Colors.black54),
-                      const SizedBox(width: 10),
-                      Text(
-                        DateFormat.yMMMMd().format(selectedDate),
-                        style: GoogleFonts.dmSans(fontSize: 16, color: Colors.black87),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
+                                  /// Date Picker 1
+                                  GestureDetector(
+                                    onTap:
+                                        () => _selectDate(context, (date) {
+                                          selectedDate = date;
+                                        }),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                        horizontal: 15,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.black26,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.calendar_today,
+                                            color: Colors.black54,
+                                          ),
+                                          const SizedBox(width: 10),
+                                          Text(
+                                            DateFormat.yMMMMd().format(
+                                              selectedDate,
+                                            ),
+                                            style: GoogleFonts.dmSans(
+                                              fontSize: 16,
+                                              color: Colors.black87,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
 
-              /// Notes TextField
-              TextField(
-                controller: noteController,
-                maxLines: 3,
-                decoration: InputDecoration(
-                  hintText: "Note",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                ),
-              ),
-              const SizedBox(height: 20),
+                                  /// Date Picker 2 (Optional second date)
+                                  GestureDetector(
+                                    onTap:
+                                        () => _selectDate(context, (date) {
+                                          selectedDate = date;
+                                        }),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                        horizontal: 15,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.black26,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.access_time,
+                                            color: Colors.black54,
+                                          ),
+                                          const SizedBox(width: 10),
+                                          Text(
+                                            DateFormat.yMMMMd().format(
+                                              selectedDate,
+                                            ),
+                                            style: GoogleFonts.dmSans(
+                                              fontSize: textScaler.scale(16.0),
+                                              color: Colors.black87,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
 
-              /// Save Reminder Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                  ),
-                  child: Text(
-                    "Save Reminder",
-                    style: GoogleFonts.dmSans(fontSize: 16, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
-  );
+                                  /// Notes TextField
+                                  TextField(
+                                    controller: noteController,
+                                    maxLines: 3,
+                                    decoration: InputDecoration(
+                                      hintText: "Note",
+                                      hintStyle: GoogleFonts.dmSans(
+                                        fontSize: textScaler.scale(11.0),
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
 
-                      
+                                  /// Save Reminder Button
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.green,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 12,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "Save Reminder",
+                                        style: GoogleFonts.dmSans(
+                                          fontSize: textScaler.scale(14.0),
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
                     },
                     child: Container(
                       height: 25,
@@ -682,7 +746,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                             "Follow Up",
                             style: GoogleFonts.dmSans(
                               fontWeight: FontWeight.w500,
-                              fontSize: 9,
+                              fontSize: textScaler.scale(9.0),
                               color: const Color.fromRGBO(9, 67, 124, 1),
                             ),
                           ),

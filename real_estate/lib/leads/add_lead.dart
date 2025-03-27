@@ -23,6 +23,8 @@ class _AddLeaderState extends State<AddLeader> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    TextScaler textScaler = MediaQuery.of(context).textScaler;
+
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 245, 248, 1),
@@ -31,7 +33,7 @@ class _AddLeaderState extends State<AddLeader> {
           "Add Lead",
           style: GoogleFonts.dmSans(
             fontWeight: FontWeight.w600,
-            fontSize: 19,
+            fontSize: textScaler.scale(19.0),
             color: Colors.white,
           ),
         ),
@@ -50,14 +52,14 @@ class _AddLeaderState extends State<AddLeader> {
               "Add Lead",
               style: GoogleFonts.dmSans(
                 fontWeight: FontWeight.w600,
-                fontSize: screenWidth * 0.05,
+                fontSize: textScaler.scale(22.0),
                 color: const Color.fromRGBO(21, 95, 165, 1),
               ),
             ),
             SizedBox(height: screenHeight * 0.03),
 
             // Name Field
-            buildInputField("Enter Name", "Full Name", screenWidth, name),
+            buildInputField("Enter Name", "Full Name", screenWidth, name, textScaler),
 
             SizedBox(height: screenHeight * 0.03),
 
@@ -70,6 +72,7 @@ class _AddLeaderState extends State<AddLeader> {
                     "Phone Number",
                     screenWidth,
                     phoneno,
+                    textScaler
                   ),
                 ),
                 SizedBox(width: 10),
@@ -79,6 +82,7 @@ class _AddLeaderState extends State<AddLeader> {
                     "Mail",
                     screenWidth,
                     mainID,
+                    textScaler
                   ),
                 ),
               ],
@@ -100,6 +104,7 @@ class _AddLeaderState extends State<AddLeader> {
                       });
                     },
                     screenWidth,
+                    textScaler
                   ),
                 ),
                 SizedBox(width: 10),
@@ -114,6 +119,7 @@ class _AddLeaderState extends State<AddLeader> {
                       });
                     },
                     screenWidth,
+                    textScaler
                   ),
                 ),
               ],
@@ -128,36 +134,13 @@ class _AddLeaderState extends State<AddLeader> {
                   "Note",
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
-                    fontSize: screenWidth * 0.035,
+                    fontSize: textScaler.scale(12.0),
                     color: const Color.fromRGBO(26, 97, 164, 1),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
 
-                // Container(
-                //   height: 125,
-                //   decoration: BoxDecoration(
-                //     color: const Color.fromARGB(255, 228, 235, 240),
-                //     borderRadius: BorderRadius.circular(8),
-                //   ),
-                //   child: TextField(
-                //     controller: noteController,
-                //     keyboardType: TextInputType.multiline,
-                //     maxLines: null,
-                //     decoration: InputDecoration(
-                //       hintText: "Type Here",
-                //       hintStyle: GoogleFonts.dmSans(
-                //         fontWeight: FontWeight.w400,
-                //         fontSize: screenWidth * 0.03,
-                //         color: const Color.fromRGBO(179, 189, 199, 1),
-                //       ),
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //         borderSide: BorderSide.none,
-                //       ),
-                //     ),
-                //   ),
-                // ),
+               
                 Container(
                   height: screenWidth * 0.2,
                   decoration: BoxDecoration(
@@ -170,8 +153,7 @@ class _AddLeaderState extends State<AddLeader> {
                     maxLines: null,
                     style: GoogleFonts.dmSans(
                       fontSize:
-                          screenWidth *
-                          0.03, // Responsive font size when user types
+                          textScaler.scale(14.0), // Responsive font size when user types
                       fontWeight: FontWeight.w400,
                       color: Colors.black, // Adjust text color if needed
                     ),
@@ -180,8 +162,7 @@ class _AddLeaderState extends State<AddLeader> {
                       hintStyle: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w400,
                         fontSize:
-                            screenWidth *
-                            0.03, // Keep hint text slightly smaller
+                           textScaler.scale(14.0), // Keep hint text slightly smaller
                         color: const Color.fromRGBO(179, 189, 199, 1),
                       ),
                       border: OutlineInputBorder(
@@ -216,7 +197,7 @@ class _AddLeaderState extends State<AddLeader> {
                     "Add Lead",
                     style: GoogleFonts.dmSans(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: textScaler.scale(18.0),
                       color: const Color.fromRGBO(255, 255, 255, 1),
                     ),
                   ),
@@ -230,51 +211,13 @@ class _AddLeaderState extends State<AddLeader> {
     );
   }
 
-  // Input Field
-  // Widget buildInputField(
-  //   String label,
-  //   String hint,
-  //   double screenWidth,
-  //   TextEditingController controller,
-  // ) {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       Text(
-  //         label,
-  //         style: GoogleFonts.dmSans(
-  //           fontWeight: FontWeight.w400,
-  //           fontSize: screenWidth * 0.035,
-  //           color: const Color.fromRGBO(26, 97, 164, 1),
-  //         ),
-  //       ),
-  //       SizedBox(height: 8),
-  //       TextField(
-  //         controller: controller,
-  //         decoration: InputDecoration(
-  //           filled: true,
-  //           fillColor: const Color.fromARGB(255, 228, 235, 240),
-  //           hintText: hint,
-  //           hintStyle: GoogleFonts.dmSans(
-  //             fontWeight: FontWeight.w400,
-  //             fontSize: screenWidth * 0.03,
-  //             color: const Color.fromRGBO(179, 189, 199, 1),
-  //           ),
-  //           border: OutlineInputBorder(
-  //             borderRadius: BorderRadius.circular(8),
-  //             borderSide: BorderSide.none,
-  //           ),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
+  
   Widget buildInputField(
     String label,
     String hint,
     double screenWidth,
     TextEditingController controller,
+    dynamic textScaler,
   ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,7 +226,7 @@ class _AddLeaderState extends State<AddLeader> {
           label,
           style: GoogleFonts.dmSans(
             fontWeight: FontWeight.w400,
-            fontSize: screenWidth * 0.035,
+            fontSize: textScaler.scale(14.0),
             color: const Color.fromRGBO(26, 97, 164, 1),
           ),
         ),
@@ -291,7 +234,7 @@ class _AddLeaderState extends State<AddLeader> {
         TextField(
           controller: controller,
           style: GoogleFonts.dmSans(
-            fontSize: screenWidth * 0.03, // Increase text size when user types
+            fontSize: textScaler.scale(14.0), // Increase text size when user types
             fontWeight: FontWeight.w400,
             color: Colors.black, // Adjust color if needed
           ),
@@ -302,7 +245,7 @@ class _AddLeaderState extends State<AddLeader> {
             hintStyle: GoogleFonts.dmSans(
               fontWeight: FontWeight.w400,
               fontSize:
-                  screenWidth * 0.03, // Hint text remains slightly smaller
+                  textScaler.scale(14.0), // Hint text remains slightly smaller
               color: const Color.fromRGBO(179, 189, 199, 1),
             ),
             border: OutlineInputBorder(
@@ -315,76 +258,14 @@ class _AddLeaderState extends State<AddLeader> {
     );
   }
 
-  // Widget buildDropdownField(
-  //   String label,
-  //   List<String> items,
-  //   String? value,
-  //   void Function(String?) onChanged,
-  //   double screenWidth,
-  // ) {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       Text(
-  //         label,
-  //         style: GoogleFonts.dmSans(
-  //           fontWeight: FontWeight.w400,
-  //           fontSize: screenWidth * 0.035,
-  //           color: const Color.fromRGBO(26, 97, 164, 1),
-  //         ),
-  //       ),
-  //       const SizedBox(height: 8),
-  //       Container(
-  //         padding: const EdgeInsets.symmetric(horizontal: 12),
-  //         decoration: BoxDecoration(
-  //           color: const Color.fromARGB(255, 228, 235, 240),
-  //           borderRadius: BorderRadius.circular(8),
-  //         ),
-  //         child: Row(
-  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //           children: [
-  //             Expanded(
-  //               child: DropdownButtonHideUnderline(
-  //                 child: DropdownButton<String>(
-  //                   value: value,
-  //                   icon: SizedBox.shrink(),
-  //                   isExpanded: true,
-  //                   hint: Text(
-  //                     "Select",
-  //                     style: GoogleFonts.dmSans(
-  //                       fontWeight: FontWeight.w400,
-  //                       fontSize: screenWidth * 0.03,
-  //                       color: const Color.fromRGBO(179, 189, 199, 1),
-  //                     ),
-  //                   ),
-  //                   items:
-  //                       items.map((String item) {
-  //                         return DropdownMenuItem<String>(
-  //                           value: item,
-  //                           child: Text(
-  //                             item,
-  //                             style: GoogleFonts.dmSans(fontSize: 14),
-  //                           ),
-  //                         );
-  //                       }).toList(),
-  //                   onChanged: onChanged,
-  //                 ),
-  //               ),
-  //             ),
-  //             const Icon(Icons.expand_more, color: Colors.grey),
-  //           ],
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
+  
   Widget buildDropdownField(
     String label,
     List<String> items,
     String? value,
     void Function(String?) onChanged,
     double screenWidth,
+    dynamic textScaler,
   ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -393,7 +274,7 @@ class _AddLeaderState extends State<AddLeader> {
           label,
           style: GoogleFonts.dmSans(
             fontWeight: FontWeight.w400,
-            fontSize: screenWidth * 0.035,
+            fontSize: textScaler.scale(14.0),
             color: const Color.fromRGBO(26, 97, 164, 1),
           ),
         ),
@@ -420,7 +301,7 @@ class _AddLeaderState extends State<AddLeader> {
                           "Select",
                           style: GoogleFonts.dmSans(
                             fontWeight: FontWeight.w500,
-                            fontSize: screenWidth * 0.03,
+                            fontSize: textScaler.scale(14.0),
                             // fontSize:
                             //     constraints.maxWidth *
                             //     0.05, // Responsive text size
@@ -434,7 +315,7 @@ class _AddLeaderState extends State<AddLeader> {
                                 child: Text(
                                   item,
                                   style: GoogleFonts.dmSans(
-                                    fontSize: constraints.maxWidth * 0.04,
+                                    fontSize: textScaler.scale(14.0),
                                   ), // Adjust text size dynamically
                                   overflow:
                                       TextOverflow

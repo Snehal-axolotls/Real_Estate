@@ -13,137 +13,144 @@ class Verify extends StatefulWidget {
 class _VerifyState extends State<Verify> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    TextScaler textScaler = MediaQuery.of(context).textScaler;
 
-        double screenWidth = constraints.maxWidth;
-        double screenHeight = constraints.maxHeight;
-
-        return Scaffold(
-          backgroundColor: Color.fromRGBO(242, 245, 248, 1),
-          appBar: AppBar(
-            backgroundColor: Color.fromRGBO(242, 245, 248, 1),
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              color: Color.fromRGBO(33, 90, 146, 1),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(242, 245, 248, 1),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          color: const Color.fromRGBO(33, 90, 146, 1),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.08,
+            vertical: screenHeight * 0.05,
           ),
-          body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: screenHeight * 0.1),
+              Text(
+                "OTP Verification",
+                style: GoogleFonts.dmSans(
+                  fontWeight: FontWeight.w600,
+                  fontSize: textScaler.scale(36),
+                  color: const Color.fromRGBO(33, 90, 146, 1),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Text(
+                "Enter the verification code we just sent on your phone number.",
+                style: GoogleFonts.dmSans(
+                  fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(20),
+                  color: const Color.fromRGBO(138, 155, 172, 1),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.05),
+
+              /// OTP Input Field
+              Center(
+                child: OtpTextField(
+                  fieldWidth: screenWidth * 0.15,
+                  fieldHeight: screenWidth * 0.15,
+                  margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
+                  numberOfFields: 4,
+                  borderColor: const Color.fromRGBO(38, 147, 255, 1),
+                  showFieldAsBox: true,
+                  textStyle: GoogleFonts.dmSans(
+                    fontWeight: FontWeight.w400,
+                    fontSize: textScaler.scale(screenWidth * 0.06),
+                    color: const Color.fromRGBO(8, 104, 199, 1),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: screenHeight * 0.04),
+
+              Center(
+                child: Text(
+                  "00:24",
+                  style: GoogleFonts.dmSans(
+                    fontWeight: FontWeight.w500,
+                    fontSize: textScaler.scale(18),
+                    color: const Color.fromRGBO(138, 155, 172, 1),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: screenHeight * 0.02),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 80),
                   Text(
-                    "OTP Verification",
+                    "Didn’t receive the code? ",
                     style: GoogleFonts.dmSans(
                       fontWeight: FontWeight.w600,
-                      fontSize: 36,
-                      color: Color.fromRGBO(33, 90, 146, 1),
+                      fontSize: textScaler.scale(16),
+                      color: const Color.fromRGBO(138, 155, 172, 1),
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  Flexible(
-                    child: Text(
-                      "Enter the verification code we just sent on your phone number.",
-                      style: GoogleFonts.dmSans(
-                        fontWeight: FontWeight.w500,
-                        fontSize: screenWidth*0.045,
-                        color: Color.fromRGBO(138, 155, 172, 1),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  OtpTextField(
-                    fieldWidth: screenWidth*0.16,
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    fieldHeight: screenHeight*0.1,
-                    numberOfFields: 4,
-                    borderColor: Color.fromRGBO(38, 147, 255, 1),
-                    showFieldAsBox: true,
-                    // textStyle: TextStyle(
-                    //   color: Color.fromRGBO(33, 90, 146, 1),
-                    // ),
-                    textStyle: GoogleFonts.dmSans(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 25,
-                      color: Color.fromRGBO(8, 104, 199, 1),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  Center(
-                    child: Text(
-                      "00:24",
-                      style: GoogleFonts.dmSans(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,
-                        color: Color.fromRGBO(138, 155, 172, 1),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "Didn’t receive the code? ",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: Color.fromRGBO(138, 155, 172, 1),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "Resend",
-                        style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: Color.fromRGBO(47, 112, 175, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 40),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const DashBoard()),
-                      );
+                      // Resend OTP logic here
                     },
-                    child: Center(
-                      child: Container(
-                        height: 55.32,
-                        width: 379,
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(7)),
-                          color: Color.fromRGBO(33, 90, 146, 1),
-                        ),
-                        child: Text(
-                          "Verify",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: const Color.fromRGBO(255, 255, 255, 1),
-                          ),
-                        ),
+                    child: Text(
+                      "Resend",
+                      style: GoogleFonts.dmSans(
+                        fontWeight: FontWeight.w600,
+                        fontSize: textScaler.scale(16),
+                        color: const Color.fromRGBO(47, 112, 175, 1),
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
+
+              SizedBox(height: screenHeight * 0.05),
+
+              /// Verify Button
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DashBoard()),
+                  );
+                },
+                child: Center(
+                  child: Container(
+                    height: 55.32,
+                    width: 379,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
+                      color: Color.fromRGBO(33, 90, 146, 1),
+                    ),
+                    child: Text(
+                      "Verify",
+                      style: GoogleFonts.dmSans(
+                        fontWeight: FontWeight.w600,
+                        fontSize: textScaler.scale(18),
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        );
-      }
+        ),
+      ),
     );
   }
 }
