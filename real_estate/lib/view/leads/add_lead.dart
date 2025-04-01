@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/common/custom_appbar.dart';
-import 'package:real_estate/common/custom_button.dart';
-import 'package:real_estate/common/custom_text.dart';
+import 'package:real_estate/view/common/bottom_nav_bar.dart';
+import 'package:real_estate/view/common/custom_appbar.dart';
+import 'package:real_estate/view/common/custom_button.dart';
+import 'package:real_estate/view/common/custom_text.dart';
 
 class AddLeader extends StatefulWidget {
   const AddLeader({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/common/custom_appbar.dart';
+import 'package:real_estate/view/common/bottom_nav_bar.dart';
+import 'package:real_estate/view/common/custom_appbar.dart';
 
 class PropertyDetails extends StatefulWidget {
   const PropertyDetails({super.key});

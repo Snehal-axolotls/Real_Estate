@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
+import 'package:real_estate/view/common/bottom_nav_bar.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/dashboard/dashboard.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

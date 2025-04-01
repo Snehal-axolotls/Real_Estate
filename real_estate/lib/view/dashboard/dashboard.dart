@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/common/custom_appbar.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/common/drawer.dart';
-import 'package:real_estate/profile/profile.dart';
+import 'package:real_estate/view/common/bottom_nav_bar.dart';
+import 'package:real_estate/view/common/custom_appbar.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/common/drawer.dart';
+import 'package:real_estate/view/profile/profile.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashBoard extends StatefulWidget {

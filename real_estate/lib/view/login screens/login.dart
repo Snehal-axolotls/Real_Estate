@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:real_estate/common/custom_button.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/login%20screens/verifyPhone.dart';
+import 'package:real_estate/view/common/custom_button.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/login%20screens/verifyPhone.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

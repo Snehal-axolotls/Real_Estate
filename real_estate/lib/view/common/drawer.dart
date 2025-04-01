@@ -1,13 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
-import 'package:real_estate/followup/follow_ups.dart';
-import 'package:real_estate/leads/add_lead.dart';
-import 'package:real_estate/leads/assigned_lead.dart';
-import 'package:real_estate/login%20screens/login.dart';
-import 'package:real_estate/properties/properties.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/dashboard/dashboard.dart';
+import 'package:real_estate/view/followup/follow_ups.dart';
+import 'package:real_estate/view/leads/add_lead.dart';
+import 'package:real_estate/view/leads/assigned_lead.dart';
+import 'package:real_estate/view/login%20screens/login.dart';
+import 'package:real_estate/view/properties/properties.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});

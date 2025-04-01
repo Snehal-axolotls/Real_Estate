@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:real_estate/common/custom_button.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
+import 'package:real_estate/view/common/custom_button.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/dashboard/dashboard.dart';
 
 class Verify extends StatefulWidget {
   const Verify({super.key});

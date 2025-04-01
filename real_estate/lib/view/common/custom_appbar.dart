@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/dashboard/dashboard.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

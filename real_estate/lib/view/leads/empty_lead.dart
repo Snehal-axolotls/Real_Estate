@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:real_estate/common/custom_appbar.dart';
-import 'package:real_estate/common/custom_text.dart';
+import 'package:real_estate/view/common/custom_appbar.dart';
+import 'package:real_estate/view/common/custom_text.dart';
 
 class NoLead extends StatelessWidget {
   const NoLead({super.key});

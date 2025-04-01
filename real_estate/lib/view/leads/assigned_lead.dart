@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/common/custom_appbar.dart';
-import 'package:real_estate/common/custom_button.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/leads/lead_details.dart';
+import 'package:real_estate/view/common/bottom_nav_bar.dart';
+import 'package:real_estate/view/common/custom_appbar.dart';
+import 'package:real_estate/view/common/custom_button.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/leads/lead_details.dart';
 
 class AssignedLeads extends StatefulWidget {
   const AssignedLeads({super.key});

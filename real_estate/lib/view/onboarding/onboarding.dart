@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:real_estate/common/custom_button.dart';
-import 'package:real_estate/common/custom_text.dart';
-import 'package:real_estate/login%20screens/login.dart';
+import 'package:real_estate/view/common/custom_button.dart';
+import 'package:real_estate/view/common/custom_text.dart';
+import 'package:real_estate/view/login%20screens/login.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});

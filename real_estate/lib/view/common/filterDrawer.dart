@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate/common/custom_text.dart';
+import 'package:real_estate/view/common/custom_text.dart';
 
 class FilterDrawer extends StatefulWidget {
   const FilterDrawer({super.key});
