@@ -1,10 +1,11 @@
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
+import 'package:real_estate/common/custom_appbar.dart';
+import 'package:real_estate/common/custom_button.dart';
+import 'package:real_estate/common/custom_text.dart';
 import 'package:real_estate/leads/lead_details.dart';
 
 class AssignedLeads extends StatefulWidget {
@@ -92,27 +93,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(242, 245, 248, 1),
-      appBar: AppBar(
-        title: Text(
-          "My Assigned Leads",
-          style: GoogleFonts.dmSans(
-            fontWeight: FontWeight.w600,
-            fontSize: textScaler.scale(19.0
-            ),
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: const Color.fromRGBO(14, 39, 63, 1),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed:
-              () => Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => DashBoard()),
-                (Route<dynamic> route) => false,
-              ),
-        ),
-      ),
+      appBar: CustomAppBar(title: "My Assigned Leads"),
       body: Column(
         children: [
           // Search Bar
@@ -170,11 +151,9 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                           size: 12,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          filter,
-                                          style: GoogleFonts.dmSans(
-                                            fontSize: textScaler.scale(14.0),
-                                          ),
+                                        CustomText(
+                                          text: filter,
+                                          fontSize: textScaler.scale(14.0),
                                         ),
                                       ],
                                     ),
@@ -198,12 +177,10 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                             size: 12,
                           ),
                           const SizedBox(width: 8),
-                          Text(
-                            selectedFilter,
-                            style: GoogleFonts.dmSans(
-                              fontSize: textScaler.scale(14.0),
-                              fontWeight: FontWeight.w600,
-                            ),
+                          CustomText(
+                            text: selectedFilter,
+                            fontSize: textScaler.scale(14.0),
+                            fontWeight: FontWeight.w600,
                           ),
                           const Icon(
                             Icons.expand_more_rounded,
@@ -266,13 +243,11 @@ class _AssignedLeadsState extends State<AssignedLeads> {
               children: [
                 Icon(Icons.circle, color: getStatusColor(status), size: 12),
                 const SizedBox(width: 5),
-                Text(
-                  name,
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w600,
-                    fontSize: textScaler.scale(16.0),
-                    color: const Color.fromRGBO(21, 95, 165, 1),
-                  ),
+                CustomText(
+                  text: name,
+                  fontWeight: FontWeight.w600,
+                  fontSize: textScaler.scale(16.0),
+                  color: const Color.fromRGBO(21, 95, 165, 1),
                 ),
                 Spacer(),
                 GestureDetector(
@@ -282,14 +257,12 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                     });
                   },
                   child: Container(
-                    child: Text(
-                      "View Details",
-                      style: GoogleFonts.dmSans(
-                        fontSize: textScaler.scale(9.0),
-                        color: const Color.fromRGBO(0, 122, 255, 1),
-                        fontWeight: FontWeight.w500,
-                        decoration: TextDecoration.underline,
-                      ),
+                    child: CustomText(
+                      text: "View Details",
+                      fontSize: textScaler.scale(9.0),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
@@ -304,22 +277,18 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   size: 13,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  "Phone             :",
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w500,
-                    fontSize: textScaler.scale(14.0),
-                    color: const Color.fromRGBO(21, 95, 165, 1),
-                  ),
+                CustomText(
+                  text: "Phone             :",
+                  fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(14.0),
+                  color: const Color.fromRGBO(21, 95, 165, 1),
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  phone,
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w400,
-                    fontSize: textScaler.scale(12.0),
-                    color: const Color.fromRGBO(52, 78, 104, 1),
-                  ),
+                CustomText(
+                  text: phone,
+                  fontWeight: FontWeight.w400,
+                  fontSize: textScaler.scale(12.0),
+                  color: const Color.fromRGBO(52, 78, 104, 1),
                 ),
               ],
             ),
@@ -332,22 +301,18 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   size: 13,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  "Interested In  :",
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w500,
-                    fontSize: textScaler.scale(14.0),
-                    color: const Color.fromRGBO(21, 95, 165, 1),
-                  ),
+                CustomText(
+                  text: "Interested In  :",
+                  fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(14.0),
+                  color: const Color.fromRGBO(21, 95, 165, 1),
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  interest,
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w400,
-                    fontSize: textScaler.scale(12.0),
-                    color: const Color.fromRGBO(52, 78, 104, 1),
-                  ),
+                CustomText(
+                  text: interest,
+                  fontWeight: FontWeight.w400,
+                  fontSize: textScaler.scale(12.0),
+                  color: const Color.fromRGBO(52, 78, 104, 1),
                 ),
               ],
             ),
@@ -360,22 +325,18 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   size: 13,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  "Status             :",
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w500,
-                    fontSize: textScaler.scale(14.0),
-                    color: const Color.fromRGBO(21, 95, 165, 1),
-                  ),
+                CustomText(
+                  text: "Status             :",
+                  fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(14.0),
+                  color: const Color.fromRGBO(21, 95, 165, 1),
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  status,
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w400,
-                    fontSize: textScaler.scale(12.0),
-                    color: const Color.fromRGBO(52, 78, 104, 1),
-                  ),
+                CustomText(
+                  text: status,
+                  fontWeight: FontWeight.w400,
+                  fontSize: textScaler.scale(12.0),
+                  color: const Color.fromRGBO(52, 78, 104, 1),
                 ),
               ],
             ),
@@ -388,22 +349,18 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                   size: 13,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  "Follow Up       :",
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w500,
-                    fontSize: textScaler.scale(14.0),
-                    color: const Color.fromRGBO(21, 95, 165, 1),
-                  ),
+                CustomText(
+                  text: "Follow Up       :",
+                  fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(14.0),
+                  color: const Color.fromRGBO(21, 95, 165, 1),
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  followUp,
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w400,
-                    fontSize: textScaler.scale(12.0),
-                    color: const Color.fromRGBO(52, 78, 104, 1),
-                  ),
+                CustomText(
+                  text: followUp,
+                  fontWeight: FontWeight.w400,
+                  fontSize: textScaler.scale(12.0),
+                  color: const Color.fromRGBO(52, 78, 104, 1),
                 ),
               ],
             ),
@@ -411,31 +368,23 @@ class _AssignedLeadsState extends State<AssignedLeads> {
             if (isExpanded) ...[
               Row(
                 children: [
-                  GestureDetector(
+                  ///VIEW DETAILS
+                  CustomButton(
+                    text: "View Details",
+                    height: 25,
+                    width: 75,
+                    color: const Color.fromRGBO(232, 243, 253, 1),
+                    fontColor: const Color.fromRGBO(9, 67, 124, 1),
+                    borderRadius: 7,
+                    fontSize: textScaler.scale(9.0),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => LeadDetails()),
                       );
                     },
-                    child: Container(
-                      height: 25,
-                      width: 75,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(7),
-                        color: const Color.fromRGBO(232, 243, 253, 1),
-                      ),
-                      child: Text(
-                        "View Details",
-                        style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w500,
-                          fontSize: textScaler.scale(9.0),
-                          color: const Color.fromRGBO(9, 67, 124, 1),
-                        ),
-                      ),
-                    ),
                   ),
+
                   SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
@@ -444,14 +393,12 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                         builder:
                             (context) => AlertDialog(
                               backgroundColor: Colors.white,
-                              title: Text(
-                                "Are You Sure You Want To \n Call John Doe ?",
-                                style: GoogleFonts.dmSans(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: textScaler.scale(18.0),
-                                  color: const Color.fromRGBO(21, 95, 165, 1),
-                                ),
-                                textAlign: TextAlign.center,
+                              title: CustomText(
+                                text:
+                                    "Are You Sure You Want To \n Call John Doe ?",
+                                fontWeight: FontWeight.w600,
+                                fontSize: textScaler.scale(18.0),
+                                color: const Color.fromRGBO(21, 95, 165, 1),
                               ),
                               content: SvgPicture.asset(
                                 'assets/svg/call.svg',
@@ -475,22 +422,22 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                       backgroundColor: Colors.transparent,
                                       shadowColor: Colors.transparent,
                                     ),
-                                    child: Text(
-                                      "Yes",
-                                      style: GoogleFonts.dmSans(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: textScaler.scale(18.0),
-                                        color: const Color.fromRGBO(
-                                          255,
-                                          255,
-                                          255,
-                                          1,
-                                        ),
+                                    child: CustomText(
+                                      text: "Yes",
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: textScaler.scale(18.0),
+                                      color: const Color.fromRGBO(
+                                        255,
+                                        255,
+                                        255,
+                                        1,
                                       ),
                                     ),
                                   ),
                                 ),
-                                SizedBox(width:MediaQuery.of(context).size.width*0.05
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.05,
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
@@ -502,17 +449,15 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                       backgroundColor: Colors.transparent,
                                       shadowColor: Colors.transparent,
                                     ),
-                                    child: Text(
-                                      "Cancel",
-                                      style: GoogleFonts.dmSans(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: textScaler.scale(18.0),
-                                        color: const Color.fromRGBO(
-                                          208,
-                                          100,
-                                          100,
-                                          1,
-                                        ),
+                                    child: CustomText(
+                                      text: "Cancel",
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: textScaler.scale(18.0),
+                                      color: const Color.fromRGBO(
+                                        208,
+                                        100,
+                                        100,
+                                        1,
                                       ),
                                     ),
                                   ),
@@ -538,13 +483,11 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                             size: 8,
                           ),
                           const SizedBox(width: 5),
-                          Text(
-                            "Call",
-                            style: GoogleFonts.dmSans(
-                              fontWeight: FontWeight.w500,
-                              fontSize: textScaler.scale(9.0),
-                              color: const Color.fromRGBO(9, 67, 124, 1),
-                            ),
+                          CustomText(
+                            text: "Call",
+                            fontWeight: FontWeight.w600,
+                            fontSize: textScaler.scale(9.0),
+                            color: const Color.fromRGBO(9, 67, 124, 1),
                           ),
                         ],
                       ),
@@ -557,7 +500,7 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                         context: context,
                         builder: (BuildContext context) {
                           return Dialog(
-                              backgroundColor: Colors.white,
+                            backgroundColor: Colors.white,
 
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -573,17 +516,15 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        "Schedule Follow Up",
-                                        style: GoogleFonts.dmSans(
-                                          fontSize: textScaler.scale(18.0),
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color.fromRGBO(
-                                            14,
-                                            39,
-                                            63,
-                                            1,
-                                          ),
+                                      CustomText(
+                                        text: "Schedule Follow Up",
+                                        fontSize: textScaler.scale(18.0),
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                          14,
+                                          39,
+                                          63,
+                                          1,
                                         ),
                                       ),
                                       GestureDetector(
@@ -621,14 +562,12 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                             color: Colors.black54,
                                           ),
                                           const SizedBox(width: 10),
-                                          Text(
-                                            DateFormat.yMMMMd().format(
+                                          CustomText(
+                                            text: DateFormat.yMMMMd().format(
                                               selectedDate,
                                             ),
-                                            style: GoogleFonts.dmSans(
-                                              fontSize: 16,
-                                              color: Colors.black87,
-                                            ),
+                                            fontSize: 16,
+                                            color: Colors.black87,
                                           ),
                                         ],
                                       ),
@@ -660,14 +599,12 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                             color: Colors.black54,
                                           ),
                                           const SizedBox(width: 10),
-                                          Text(
-                                            DateFormat.yMMMMd().format(
+                                          CustomText(
+                                            text: DateFormat.yMMMMd().format(
                                               selectedDate,
                                             ),
-                                            style: GoogleFonts.dmSans(
-                                              fontSize: textScaler.scale(16.0),
-                                              color: Colors.black87,
-                                            ),
+                                            fontSize: textScaler.scale(16.0),
+                                            color: Colors.black87,
                                           ),
                                         ],
                                       ),
@@ -709,12 +646,10 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                                           vertical: 12,
                                         ),
                                       ),
-                                      child: Text(
-                                        "Save Reminder",
-                                        style: GoogleFonts.dmSans(
-                                          fontSize: textScaler.scale(14.0),
-                                          color: Colors.white,
-                                        ),
+                                      child: CustomText(
+                                        text: "Save Reminder",
+                                        fontSize: textScaler.scale(14.0),
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
@@ -742,13 +677,11 @@ class _AssignedLeadsState extends State<AssignedLeads> {
                             size: 8,
                           ),
                           const SizedBox(width: 5),
-                          Text(
-                            "Follow Up",
-                            style: GoogleFonts.dmSans(
-                              fontWeight: FontWeight.w500,
-                              fontSize: textScaler.scale(9.0),
-                              color: const Color.fromRGBO(9, 67, 124, 1),
-                            ),
+                          CustomText(
+                            text: "Follow Up",
+                            fontWeight: FontWeight.w600,
+                            fontSize: textScaler.scale(9.0),
+                            color: const Color.fromRGBO(9, 67, 124, 1),
                           ),
                         ],
                       ),

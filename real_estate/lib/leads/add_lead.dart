@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
+import 'package:real_estate/common/custom_appbar.dart';
+import 'package:real_estate/common/custom_button.dart';
+import 'package:real_estate/common/custom_text.dart';
 
 class AddLeader extends StatefulWidget {
   const AddLeader({super.key});
@@ -25,22 +28,13 @@ class _AddLeaderState extends State<AddLeader> {
     double screenHeight = MediaQuery.of(context).size.height;
     TextScaler textScaler = MediaQuery.of(context).textScaler;
 
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 245, 248, 1),
-      appBar: AppBar(
-        title: Text(
-          "Add Lead",
-          style: GoogleFonts.dmSans(
-            fontWeight: FontWeight.w600,
-            fontSize: textScaler.scale(19.0),
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: const Color.fromRGBO(14, 39, 63, 1),
+      appBar: CustomAppBar(
+        title: "Add Leads",
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: SingleChildScrollView(
@@ -48,18 +42,22 @@ class _AddLeaderState extends State<AddLeader> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Add Lead",
-              style: GoogleFonts.dmSans(
-                fontWeight: FontWeight.w600,
-                fontSize: textScaler.scale(22.0),
-                color: const Color.fromRGBO(21, 95, 165, 1),
-              ),
+            CustomText(
+              text: "Add Lead",
+              fontWeight: FontWeight.w600,
+              fontSize: textScaler.scale(22.0),
+              color: const Color.fromRGBO(21, 95, 165, 1),
             ),
             SizedBox(height: screenHeight * 0.03),
 
             // Name Field
-            buildInputField("Enter Name", "Full Name", screenWidth, name, textScaler),
+            buildInputField(
+              "Enter Name",
+              "Full Name",
+              screenWidth,
+              name,
+              textScaler,
+            ),
 
             SizedBox(height: screenHeight * 0.03),
 
@@ -72,7 +70,7 @@ class _AddLeaderState extends State<AddLeader> {
                     "Phone Number",
                     screenWidth,
                     phoneno,
-                    textScaler
+                    textScaler,
                   ),
                 ),
                 SizedBox(width: 10),
@@ -82,7 +80,7 @@ class _AddLeaderState extends State<AddLeader> {
                     "Mail",
                     screenWidth,
                     mainID,
-                    textScaler
+                    textScaler,
                   ),
                 ),
               ],
@@ -104,7 +102,7 @@ class _AddLeaderState extends State<AddLeader> {
                       });
                     },
                     screenWidth,
-                    textScaler
+                    textScaler,
                   ),
                 ),
                 SizedBox(width: 10),
@@ -119,7 +117,7 @@ class _AddLeaderState extends State<AddLeader> {
                       });
                     },
                     screenWidth,
-                    textScaler
+                    textScaler,
                   ),
                 ),
               ],
@@ -130,17 +128,14 @@ class _AddLeaderState extends State<AddLeader> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Note",
-                  style: GoogleFonts.dmSans(
-                    fontWeight: FontWeight.w400,
-                    fontSize: textScaler.scale(12.0),
-                    color: const Color.fromRGBO(26, 97, 164, 1),
-                  ),
+                CustomText(
+                  text: "Note",
+                  fontWeight: FontWeight.w400,
+                  fontSize: textScaler.scale(12.0),
+                  color: const Color.fromRGBO(26, 97, 164, 1),
                 ),
                 SizedBox(height: screenHeight * 0.01),
 
-               
                 Container(
                   height: screenWidth * 0.2,
                   decoration: BoxDecoration(
@@ -152,8 +147,9 @@ class _AddLeaderState extends State<AddLeader> {
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
                     style: GoogleFonts.dmSans(
-                      fontSize:
-                          textScaler.scale(14.0), // Responsive font size when user types
+                      fontSize: textScaler.scale(
+                        14.0,
+                      ), // Responsive font size when user types
                       fontWeight: FontWeight.w400,
                       color: Colors.black, // Adjust text color if needed
                     ),
@@ -161,8 +157,9 @@ class _AddLeaderState extends State<AddLeader> {
                       hintText: "Type Here",
                       hintStyle: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w400,
-                        fontSize:
-                           textScaler.scale(14.0), // Keep hint text slightly smaller
+                        fontSize: textScaler.scale(
+                          14.0,
+                        ), // Keep hint text slightly smaller
                         color: const Color.fromRGBO(179, 189, 199, 1),
                       ),
                       border: OutlineInputBorder(
@@ -175,34 +172,14 @@ class _AddLeaderState extends State<AddLeader> {
               ],
             ),
             SizedBox(height: screenHeight * 0.06),
-            GestureDetector(
-              onTap: () {
-                // print("Name: ${name.text}");
-                // print("Phone: ${phoneno.text}");
-                // print("Email: ${mainID.text}");
-                // print("Property: $selectedProperty");
-                // print("Status: $selectedStatus");
-                // print("Note: ${noteController.text}");
-              },
-              child: Center(
-                child: Container(
-                  height: screenHeight * 0.05,
-                  width: screenWidth * 0.5,
-                  alignment: Alignment.center,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(7)),
-                    color: Color.fromRGBO(33, 90, 146, 1),
-                  ),
-                  child: Text(
-                    "Add Lead",
-                    style: GoogleFonts.dmSans(
-                      fontWeight: FontWeight.w600,
-                      fontSize: textScaler.scale(18.0),
-                      color: const Color.fromRGBO(255, 255, 255, 1),
-                    ),
-                  ),
-                ),
-              ),
+
+            ///ADD LEAD
+            CustomButton(
+              text: "Add Lead",
+              height: 44.09,
+              fontSize: 14,
+              width: 212,
+              onTap: () {},
             ),
           ],
         ),
@@ -211,7 +188,6 @@ class _AddLeaderState extends State<AddLeader> {
     );
   }
 
-  
   Widget buildInputField(
     String label,
     String hint,
@@ -222,19 +198,19 @@ class _AddLeaderState extends State<AddLeader> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: GoogleFonts.dmSans(
-            fontWeight: FontWeight.w400,
-            fontSize: textScaler.scale(14.0),
-            color: const Color.fromRGBO(26, 97, 164, 1),
-          ),
+        CustomText(
+          text: label,
+          fontWeight: FontWeight.w400,
+          fontSize: textScaler.scale(14.0),
+          color: const Color.fromRGBO(26, 97, 164, 1),
         ),
         const SizedBox(height: 8),
         TextField(
           controller: controller,
           style: GoogleFonts.dmSans(
-            fontSize: textScaler.scale(14.0), // Increase text size when user types
+            fontSize: textScaler.scale(
+              14.0,
+            ), // Increase text size when user types
             fontWeight: FontWeight.w400,
             color: Colors.black, // Adjust color if needed
           ),
@@ -244,8 +220,9 @@ class _AddLeaderState extends State<AddLeader> {
             hintText: hint,
             hintStyle: GoogleFonts.dmSans(
               fontWeight: FontWeight.w400,
-              fontSize:
-                  textScaler.scale(14.0), // Hint text remains slightly smaller
+              fontSize: textScaler.scale(
+                14.0,
+              ), // Hint text remains slightly smaller
               color: const Color.fromRGBO(179, 189, 199, 1),
             ),
             border: OutlineInputBorder(
@@ -258,7 +235,6 @@ class _AddLeaderState extends State<AddLeader> {
     );
   }
 
-  
   Widget buildDropdownField(
     String label,
     List<String> items,
@@ -270,13 +246,11 @@ class _AddLeaderState extends State<AddLeader> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: GoogleFonts.dmSans(
-            fontWeight: FontWeight.w400,
-            fontSize: textScaler.scale(14.0),
-            color: const Color.fromRGBO(26, 97, 164, 1),
-          ),
+        CustomText(
+          text: label,
+          fontWeight: FontWeight.w400,
+          fontSize: textScaler.scale(14.0),
+          color: const Color.fromRGBO(26, 97, 164, 1),
         ),
         const SizedBox(height: 8),
         Container(
@@ -297,29 +271,23 @@ class _AddLeaderState extends State<AddLeader> {
                         value: value,
                         icon: const SizedBox.shrink(),
                         isExpanded: true,
-                        hint: Text(
-                          "Select",
-                          style: GoogleFonts.dmSans(
-                            fontWeight: FontWeight.w500,
-                            fontSize: textScaler.scale(14.0),
-                            // fontSize:
-                            //     constraints.maxWidth *
-                            //     0.05, // Responsive text size
-                            color: const Color.fromRGBO(179, 189, 199, 1),
-                          ),
+                        hint: CustomText(
+                          text: "Select",
+                          fontWeight: FontWeight.w500,
+                          fontSize: textScaler.scale(14.0),
+                          color: const Color.fromRGBO(179, 189, 199, 1),
                         ),
                         items:
                             items.map((String item) {
                               return DropdownMenuItem<String>(
                                 value: item,
-                                child: Text(
-                                  item,
-                                  style: GoogleFonts.dmSans(
-                                    fontSize: textScaler.scale(14.0),
-                                  ), // Adjust text size dynamically
-                                  overflow:
-                                      TextOverflow
-                                          .ellipsis, // Prevents text overflow
+                                child: CustomText(
+                                  text: item,
+                                  fontSize: textScaler.scale(14.0),
+
+                                  // overflow:
+                                  //     TextOverflow
+                                  //         .ellipsis, // Prevents text overflow
                                 ),
                               );
                             }).toList(),

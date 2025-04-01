@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:real_estate/common/custom_button.dart';
+import 'package:real_estate/common/custom_text.dart';
 import 'package:real_estate/login%20screens/verifyPhone.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool? value = false;
-  
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -23,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
         double textScaleFactor = screenHeight * 0.0012;
 
         return Scaffold(
-          backgroundColor: Color.fromRGBO(242, 245, 248, 1),
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Center(
               child: Padding(
@@ -45,32 +47,29 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(height: screenHeight * 0.02),
-                      Text(
-                        "Login",
-                        style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 40 * textScaleFactor,
-                          color: Color.fromRGBO(33, 90, 146, 1),
-                        ),
+                      CustomText(
+                        text: "Login",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 40 * textScaleFactor,
+                        color: Color.fromRGBO(33, 90, 146, 1),
                       ),
+
                       SizedBox(height: screenHeight * 0.01),
-                      Text(
-                        "Please Enter Your Phone Number",
-                        style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20 * textScaleFactor,
-                          color: Color.fromRGBO(138, 155, 172, 1),
-                        ),
+                      CustomText(
+                        text: "Please Enter Your Phone Number",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20 * textScaleFactor,
+                        color: Color.fromRGBO(138, 155, 172, 1),
                       ),
+
                       SizedBox(height: screenHeight * 0.04),
-                      Text(
-                        "Phone number",
-                        style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16 * textScaleFactor,
-                          color: Color.fromRGBO(33, 90, 146, 1),
-                        ),
+                      CustomText(
+                        text: "Phone number",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16 * textScaleFactor,
+                        color: Color.fromRGBO(33, 90, 146, 1),
                       ),
+
                       SizedBox(height: screenHeight * 0.01),
                       IntlPhoneField(
                         decoration: InputDecoration(
@@ -108,19 +107,19 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(width: 5),
                           Flexible(
-                            child: Text(
-                              "Keep me signed in",
-                              style: GoogleFonts.dmSans(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16 * textScaleFactor,
-                                color: Color.fromRGBO(138, 155, 172, 1),
-                              ),
+                            child: CustomText(
+                              text: "Keep me signed in",
+
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16 * textScaleFactor,
+                              color: Color.fromRGBO(138, 155, 172, 1),
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 20),
-                      GestureDetector(
+                      CustomButton(
+                        text: "Get OTP",
                         onTap: () {
                           Navigator.push(
                             context,
@@ -129,27 +128,6 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },
-                        child: Center(
-                          child: Container(
-                            height: 55.32,
-                            width: 379,
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(7),
-                              ),
-                              color: Color.fromRGBO(33, 90, 146, 1),
-                            ),
-                            child: Text(
-                              "Get OTP",
-                              style: GoogleFonts.dmSans(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18 * textScaleFactor,
-                                color: const Color.fromRGBO(255, 255, 255, 1),
-                              ),
-                            ),
-                          ),
-                        ),
                       ),
                     ],
                   ),

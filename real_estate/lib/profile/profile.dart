@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
+import 'package:real_estate/common/custom_text.dart';
 import 'package:real_estate/dashboard/dashboard.dart';
 
 class Profile extends StatefulWidget {
@@ -60,14 +60,13 @@ class _ProfileState extends State<Profile> {
                             (Route<dynamic> route) => false,
                           ),
                     ),
-                    Text(
-                      "Profile",
-                      style: GoogleFonts.dmSans(
+                    CustomText(
+                      text : "Profile",
                         fontWeight: FontWeight.w600,
                         fontSize: 19,
                         color: Colors.white,
                       ),
-                    ),
+                    
                     const Spacer(),
                     IconButton(
                       icon: const Icon(
@@ -77,14 +76,13 @@ class _ProfileState extends State<Profile> {
                       ),
                       onPressed: () {},
                     ),
-                    Text(
-                      "Edit",
-                      style: GoogleFonts.dmSans(
+                    CustomText(
+                      text : "Edit",
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
                         color: Colors.white,
                       ),
-                    ),
+                    
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -133,22 +131,20 @@ class _ProfileState extends State<Profile> {
                 ),
 
                 const SizedBox(height: 10),
-                Text(
-                  "John Doe",
-                  style: GoogleFonts.dmSans(
+                CustomText(
+                  text : "John Doe",
                     fontWeight: FontWeight.w600,
                     fontSize: 21,
                     color: Colors.white,
                   ),
-                ),
-                Text(
-                  "Sales Person",
-                  style: GoogleFonts.dmSans(
+                
+                CustomText(
+                  text : "Sales Person",
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                     color: Colors.white,
                   ),
-                ),
+                
                 const SizedBox(height: 10),
               ],
             ),
@@ -187,13 +183,12 @@ class _ProfileState extends State<Profile> {
   }) {
     return ListTile(
       leading: Icon(icon, color: isRed ? Colors.red : Colors.black54),
-      title: Text(
-        title,
-        style: GoogleFonts.dmSans(
+      title: CustomText(
+        text : title,
           fontSize: 16,
           color: Color.fromRGBO(5, 50, 93, 1),
         ),
-      ),
+      
       trailing:
           badgeCount > 0
               ? Container(
@@ -202,11 +197,9 @@ class _ProfileState extends State<Profile> {
                   color: Colors.red,
                   shape: BoxShape.circle,
                 ),
-                child: Text(
-                  badgeCount.toString(),
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              )
+                child: CustomText(
+                  text : badgeCount.toString(),color: Colors.white, fontSize: 12),
+                )
               : const Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
@@ -216,3 +209,4 @@ class _ProfileState extends State<Profile> {
     );
   }
 }
+

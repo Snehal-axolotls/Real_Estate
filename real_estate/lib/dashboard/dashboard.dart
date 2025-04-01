@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
+import 'package:real_estate/common/custom_appbar.dart';
+import 'package:real_estate/common/custom_text.dart';
 import 'package:real_estate/common/drawer.dart';
 import 'package:real_estate/profile/profile.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -28,7 +29,8 @@ class _DashBoardState extends State<DashBoard> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(14, 39, 63, 1),
-      appBar: AppBar(
+      appBar: CustomAppBar(
+        title: "",
         backgroundColor: Colors.transparent,
         leading: Builder(
           builder: (context) {
@@ -62,31 +64,31 @@ class _DashBoardState extends State<DashBoard> {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 20,
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: Text(
-                        "Hey, Let’s Close Some Deals Today.",
-                        style: GoogleFonts.dmSans(
-                          color: Colors.white,
-                          fontSize: textScaler.scale(19),
-                          fontWeight: FontWeight.w600,
-                        ),
+                      child: CustomText(
+                        text: "Hey, Let’s Close Some Deals Today.",
+                        textAlign: TextAlign.start,
+                        color: Colors.white,
+                        fontSize: textScaler.scale(19),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         SizedBox(height: height * 0.02),
-                        Text(
-                          "Sales Executive",
-                          style: GoogleFonts.dmSans(
-                            color: const Color.fromRGBO(188, 198, 209, 1),
-                            fontSize: textScaler.scale(16),
-                            fontWeight: FontWeight.w500,
-                          ),
+                        CustomText(
+                          text: "Sales Executive",
+                          color: const Color.fromRGBO(188, 198, 209, 1),
+                          fontSize: textScaler.scale(16),
+                          fontWeight: FontWeight.w500,
                         ),
                       ],
                     ),
@@ -95,7 +97,10 @@ class _DashBoardState extends State<DashBoard> {
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(bottom: height * 0.05, top: height * 0.025),
+                  padding: EdgeInsets.only(
+                    bottom: height * 0.05,
+                    top: height * 0.025,
+                  ),
                   width: width,
                   height: height - (height * 0.25),
                   decoration: const BoxDecoration(
@@ -113,80 +118,87 @@ class _DashBoardState extends State<DashBoard> {
                           spacing: width * 0.04,
                           runSpacing: height * 0.02,
                           alignment: WrapAlignment.center,
-                          children: gridData.map((data) {
-                            return Container(
-                              width: width > 1000 ? width * 0.2 : width * 0.4,
-                              padding: const EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
-                                    offset: const Offset(0, 4),
-                                    blurRadius: 4,
+                          children:
+                              gridData.map((data) {
+                                return Container(
+                                  width:
+                                      width > 1000 ? width * 0.2 : width * 0.4,
+                                  padding: const EdgeInsets.all(15),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        offset: const Offset(0, 4),
+                                        blurRadius: 4,
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    data["title"],
-                                    style: GoogleFonts.dmSans(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: textScaler.scale(16),
-                                    ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CustomText(
+                                        text: data["title"],
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: textScaler.scale(16),
+                                      ),
+                                      SizedBox(height: height * 0.01),
+                                      CustomText(
+                                        text: data["score"],
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: textScaler.scale(42),
+                                        color: const Color.fromRGBO(
+                                          0,
+                                          170,
+                                          65,
+                                          1,
+                                        ),
+                                      ),
+                                      CustomText(
+                                        text: data["desc"],
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: textScaler.scale(13),
+                                        color: Colors.grey,
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(height: height * 0.01),
-                                  Text(
-                                    data["score"],
-                                    style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: textScaler.scale(42),
-                                      color: const Color.fromRGBO(0, 170, 65, 1),
-                                    ),
-                                  ),
-                                  Text(
-                                    data["desc"],
-                                    style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: textScaler.scale(13),
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }).toList(),
+                                );
+                              }).toList(),
                         ),
                         SizedBox(height: height * 0.02),
                         width > 1000
                             ? Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: buildGraphContainer(
-                                      "Lead Conversion Rate",
-                                      getLineChart(),
-                                    ),
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: buildGraphContainer(
+                                    "Lead Conversion Rate",
+                                    getLineChart(),
                                   ),
-                                  SizedBox(width: width * 0.02),
-                                  Expanded(
-                                    child: buildGraphContainer(
-                                      "Monthly Sales Performance",
-                                      getBarChart(),
-                                    ),
+                                ),
+                                SizedBox(width: width * 0.02),
+                                Expanded(
+                                  child: buildGraphContainer(
+                                    "Monthly Sales Performance",
+                                    getBarChart(),
                                   ),
-                                ],
-                              )
+                                ),
+                              ],
+                            )
                             : Column(
-                                children: [
-                                  buildGraphContainer("Lead Conversion Rate", getLineChart()),
-                                  SizedBox(height: height * 0.02),
-                                  buildGraphContainer("Monthly Sales Performance", getBarChart()),
-                                ],
-                              ),
+                              children: [
+                                buildGraphContainer(
+                                  "Lead Conversion Rate",
+                                  getLineChart(),
+                                ),
+                                SizedBox(height: height * 0.02),
+                                buildGraphContainer(
+                                  "Monthly Sales Performance",
+                                  getBarChart(),
+                                ),
+                              ],
+                            ),
                         SizedBox(height: height * 0.02),
                       ],
                     ),
@@ -225,12 +237,10 @@ class _DashBoardState extends State<DashBoard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: GoogleFonts.dmSans(
-              fontWeight: FontWeight.w600,
-              fontSize: textScaler.scale(18),
-            ),
+          CustomText(
+            text: title,
+            fontWeight: FontWeight.w600,
+            fontSize: textScaler.scale(18),
           ),
           chartWidget,
         ],

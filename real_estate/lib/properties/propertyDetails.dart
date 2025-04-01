@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/common/bottom_nav_bar.dart';
+import 'package:real_estate/common/custom_appbar.dart';
 
 class PropertyDetails extends StatefulWidget {
   const PropertyDetails({super.key});
@@ -42,16 +43,8 @@ class _PropertyDetailsState extends State<PropertyDetails> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 245, 248, 1),
-      appBar: AppBar(
-        title: Text(
-          "Property Details",
-          style: GoogleFonts.dmSans(
-            fontWeight: FontWeight.w600,
-            fontSize: 19,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: const Color.fromRGBO(14, 39, 63, 1),
+      appBar: CustomAppBar(
+        title: "Property Details",
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
@@ -124,7 +117,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                           ),
                         ),
                         SizedBox(width: screenWidth * 0.02),
-                                                  
+
                         // Spacer(),
                         Text(
                           "(2000sqft)",
