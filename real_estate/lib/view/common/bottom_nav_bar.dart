@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate/leads/assigned_lead.dart';
-import 'package:real_estate/dashboard/dashboard.dart';
-import 'package:real_estate/followup/follow_ups.dart';
-import 'package:real_estate/profile/profile.dart';
-import 'package:real_estate/properties/properties.dart';
+import 'package:real_estate/view/leads/assigned_lead.dart';
+import 'package:real_estate/view/dashboard/dashboard.dart';
+import 'package:real_estate/view/followup/follow_ups.dart';
+import 'package:real_estate/view/profile/profile.dart';
+import 'package:real_estate/view/properties/properties.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final dynamic selectedIndex;
